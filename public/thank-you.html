@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You | PaidMedia</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top, #0f2a44 0%, #07111f 35%, #000000 100%);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 860px;
+      background: rgba(10, 10, 10, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 32px;
+      padding: 40px 28px;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(10px);
+    }
+
+    .icon-wrap {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 24px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 16px;
+      color: #67e8f9;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 42px;
+      line-height: 1.05;
+      font-weight: 900;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 24px auto 0;
+      font-size: 18px;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .grid {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      text-align: left;
+    }
+
+    .box {
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 22px;
+    }
+
+    .box h3 {
+      font-size: 22px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .box p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .actions {
+      margin-top: 34px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      min-width: 220px;
+      padding: 16px 24px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .btn-dark {
+      background: rgba(255, 255, 255, 0.06);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-dark:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #22d3ee, #06b6d4);
+      color: #03131c;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.92;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        padding: 28px 20px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .btn {
+        width: 100%;
+        min-width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon-wrap">
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M20 6L9 17l-5-5" stroke="#34d399" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="badge">Audit Request Received</div>
+
+    <h1>Thank You. Your Audit Request Has Been Submitted.</h1>
+
+    <p class="lead">
+      I’ve received your request and will review your website, Google Ads setup, tracking,
+      landing pages, and wasted spend opportunities. You should hear back within 24 hours.
+    </p>
+
+    <div class="grid">
+      <div class="box">
+        <h3>Check Your Inbox</h3>
+        <p>
+          I may send a quick follow-up if I need account access details or a few clarifying questions.
+        </p>
+      </div>
+
+      <div class="box">
+        <h3>Audit Review</h3>
+        <p>
+          I’ll review ad structure, conversion tracking, landing pages, and possible bottlenecks.
+        </p>
+      </div>
+
+      <div class="box">
+        <h3>Next Steps</h3>
+        <p>
+          You’ll get action points, improvement opportunities, and recommended next steps.
+        </p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a href="/" class="btn btn-dark">Back to Homepage</a>
+      <a href="mailto:hello@paidsmedia.com" class="btn btn-primary">Contact PaidMedia</a>
+    </div>
+
+    <div class="footer-note">
+      PaidMedia • Google Ads • Tracking • Landing Page Growth
+    </div>
+  </div>
+</body>
+</html>
