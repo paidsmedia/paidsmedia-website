@@ -749,9 +749,15 @@ export default function PaidMediaAgencyWebsite() {
           
           <div>
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600" />
-              <div>
-                <div className="text-lg font-black text-white">PaidMedia</div>
+            
+              
+ <img
+    src="/logo.png"
+    alt="PaidMedia"
+    className="h-10 w-auto md:h-12" />
+
+
+                
                 <div className="text-[11px] uppercase tracking-[0.24em] text-white/45">
                   Google Ads & Tracking
                 </div>
