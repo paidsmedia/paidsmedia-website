@@ -1,180 +1,202 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from 'react'
 import {
-  BarChart3,
-  Globe,
-  LineChart,
-  MousePointerClick,
-  ShieldCheck,
-  Target,
-  TrendingUp,
-  CheckCircle2,
-  Star,
-  Zap,
-  ArrowRight,
-  Mail,
-  MessageCircle,
   Menu,
   X,
-} from "lucide-react"
-
-const testimonials = [
-  {
-    initials: "BW",
-    name: "Brian Wilson",
-    role: "Plumbing Company • Chicago",
-    quote:
-      "Our Google Ads leads became far more consistent after the campaign and tracking overhaul.",
-    badge: "bg-orange-500/20 text-orange-400",
-  },
-  {
-    initials: "JM",
-    name: "Jason Miller",
-    role: "Garage Door Repair • Texas",
-    quote:
-      "After fixing our tracking and campaigns, our lead quality improved almost immediately.",
-    badge: "bg-cyan-500/20 text-cyan-400",
-  },
-  {
-    initials: "AR",
-    name: "Amanda Roberts",
-    role: "Roofing Business • Florida",
-    quote:
-      "Very transparent reporting and much better conversion tracking than our previous agency.",
-    badge: "bg-blue-500/20 text-blue-400",
-  },
-  {
-    initials: "DK",
-    name: "Daniel Kim",
-    role: "Shopify Brand Owner",
-    quote:
-      "Meta CAPI and server-side tracking setup helped us improve attribution accuracy significantly.",
-    badge: "bg-green-500/20 text-green-400",
-  },
-  {
-    initials: "TS",
-    name: "Tom Sanders",
-    role: "HVAC Services • California",
-    quote:
-      "Campaign optimization was very data-driven and our booked calls increased without raising budget.",
-    badge: "bg-yellow-500/20 text-yellow-400",
-  },
-  {
-    initials: "ML",
-    name: "Melissa Lopez",
-    role: "Medical Clinic • Arizona",
-    quote:
-      "The landing page redesign improved our mobile conversion rate and lead quality noticeably.",
-    badge: "bg-purple-500/20 text-purple-400",
-  },
-]
-
-const workflowSteps = [
-  {
-    title: "Audit",
-    text: "Complete review of campaigns, tracking setup, attribution, and landing pages.",
-  },
-  {
-    title: "Strategy",
-    text: "Build a custom growth strategy focused on lead quality, profitability, and clean measurement.",
-  },
-  {
-    title: "Implementation",
-    text: "Launch optimized campaigns with advanced conversion tracking and analytics.",
-  },
-  {
-    title: "Scaling",
-    text: "Improve performance continuously using testing, reporting, and data-driven optimization.",
-  },
-]
+  ArrowRight,
+  CheckCircle2,
+  BarChart3,
+  Search,
+  MousePointerClick,
+  ShieldCheck,
+  LayoutDashboard,
+  LineChart,
+  BadgeDollarSign,
+  Globe,
+  PhoneCall,
+  Mail,
+  MapPin,
+  ChevronDown,
+  ChevronUp,
+} from 'lucide-react'
 
 export default function PaidMediaAgencyWebsite() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [trackingFields, setTrackingFields] = useState({
-    pageUrl: "",
-    referrer: "",
-    utm_source: "",
-    utm_medium: "",
-    utm_campaign: "",
-    utm_term: "",
-    utm_content: "",
-  })
+  const [openFaq, setOpenFaq] = useState(0)
 
-  useEffect(() => {
-    if (typeof window === "undefined") return
-
-    const params = new URLSearchParams(window.location.search)
-
-    setTrackingFields({
-      pageUrl: window.location.href || "",
-      referrer: document.referrer || "",
-      utm_source: params.get("utm_source") || "",
-      utm_medium: params.get("utm_medium") || "",
-      utm_campaign: params.get("utm_campaign") || "",
-      utm_term: params.get("utm_term") || "",
-      utm_content: params.get("utm_content") || "",
-    })
-  }, [])
-
-  const navLinks = [
-    { label: "Home", href: "#home" },
-    { label: "Services", href: "#services" },
-    { label: "Case Studies", href: "#case-studies" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Contact", href: "#contact" },
+  const services = [
+    {
+      icon: <Search className="h-6 w-6 text-cyan-400" />,
+      title: 'Google Ads',
+      desc: 'Search, Performance Max, branded and non-branded campaigns built to generate qualified leads and profitable growth.',
+      bullets: ['Search campaign setup', 'Campaign restructuring', 'Lead quality improvement', 'Wasted spend reduction'],
+    },
+    {
+      icon: <BarChart3 className="h-6 w-6 text-cyan-400" />,
+      title: 'Tracking & Analytics',
+      desc: 'GA4, GTM, conversion tracking, enhanced conversions and attribution fixes so you can trust your numbers.',
+      bullets: ['GA4 setup', 'Google Tag Manager', 'Lead form & call tracking', 'Conversion accuracy fixes'],
+    },
+    {
+      icon: <LayoutDashboard className="h-6 w-6 text-cyan-400" />,
+      title: 'Landing Pages',
+      desc: 'High-converting landing pages focused on clarity, speed, trust and lead generation performance.',
+      bullets: ['Landing page audits', 'Conversion-focused layouts', 'CTA optimization', 'Mobile UX improvements'],
+    },
   ]
 
-  return (
-    <div className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,#0f2a44_0%,#07111f_35%,#000000_100%)] text-white selection:bg-cyan-400 selection:text-black">
-      {/* Navigation */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-black/30 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:px-6 xl:gap-4">
-          <a href="#home" className="group flex items-center gap-3 sm:gap-4">
-            <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-[18px] border border-cyan-400/20 bg-black shadow-[0_0_40px_rgba(34,211,238,0.18)] transition duration-500 group-hover:scale-105 sm:h-14 sm:w-14 sm:rounded-[20px]">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-blue-500/10 to-transparent" />
-              <div className="absolute inset-[1px] rounded-[17px] bg-black sm:rounded-[19px]" />
-              <div className="relative flex h-6 items-end gap-[3px] sm:h-7">
-                <div className="h-3 w-[4px] rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.9)]" />
-                <div className="h-5 w-[4px] rounded-full bg-white" />
-                <div className="h-4 w-[4px] rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.9)]" />
-                <div className="h-6 w-[4px] rounded-full bg-white" />
-              </div>
-            </div>
+  const caseStudies = [
+    { title: 'Google Ads Optimization', stat: '40% ↓ CPA', desc: 'Reduced wasted spend and improved conversion efficiency with account cleanup and intent-based campaign restructuring.' },
+    { title: 'Server-Side Tracking', stat: '97% tracking accuracy', desc: 'Implemented GA4 + GTM fixes and improved attribution visibility across forms and lead events.' },
+    { title: 'Lead Generation Scaling', stat: '2.7x leads', desc: 'Built focused campaigns and better landing page alignment to increase lead volume without sacrificing quality.' },
+    { title: 'Call Tracking Setup', stat: '43% more tracked calls', desc: 'Fixed missed phone conversions and improved visibility into which campaigns were driving actual calls.' },
+    { title: 'Landing Page Optimization', stat: '58% lift', desc: 'Improved messaging, CTA structure and mobile usability to increase conversion rates from paid traffic.' },
+    { title: 'Google Ads Audit', stat: '31% budget recovery', desc: 'Found wasted spend, poor keyword targeting and tracking gaps that were limiting account performance.' },
+    { title: 'GA4 + GTM Setup', stat: '120+ events mapped', desc: 'Configured accurate event tracking and cleaner reporting for form submissions, calls and key micro-conversions.' },
+    { title: 'Paid Funnel Tracking', stat: 'Full funnel visibility', desc: 'Connected ad traffic, landing pages and lead tracking into a single reporting framework for better decisions.' },
+  ]
 
+  const metrics = [
+    { value: '38%', label: 'Average CPL reduction after account cleanup and conversion tracking fixes.' },
+    { value: '95%', label: 'Tracking visibility across lead forms, phone calls and core conversion actions.' },
+    { value: '2.4x', label: 'Lead growth achieved in selected accounts after structure and landing page improvements.' },
+    { value: '50+', label: 'Campaign audits, tracking setups and optimization projects across service businesses.' },
+  ]
+
+  const pricing = [
+    {
+      title: 'Audit',
+      price: '$500',
+      badge: '',
+      items: [
+        'Google Ads account review',
+        'GA4 + GTM tracking review',
+        'Landing page conversion review',
+        'Budget waste analysis',
+        'Action plan with priorities',
+      ],
+      cta: 'Request Audit',
+    },
+    {
+      title: 'Monthly',
+      price: '$1200',
+      badge: 'Most Popular',
+      items: [
+        'Campaign optimization & management',
+        'Tracking oversight',
+        'Weekly performance review',
+        'Landing page recommendations',
+        'Monthly reporting & insights',
+      ],
+      cta: 'Book Strategy Call',
+    },
+    {
+      title: 'Custom',
+      price: 'Custom',
+      badge: '',
+      items: [
+        'Tracking + ads + landing page scope',
+        'Multi-location or advanced setups',
+        'GA4 / GTM / lead tracking projects',
+        'Server-side tracking support',
+        'Custom growth roadmap',
+      ],
+      cta: 'Get Custom Quote',
+    },
+  ]
+
+  const addOnsLeft = [
+    { name: 'Basic Tracking', price: '$150 one-time' },
+    { name: 'Enhanced Tracking', price: '$300 one-time' },
+    { name: 'Call Tracking Setup', price: '$250 one-time' },
+    { name: 'Server-Side Tracking', price: '$600+ one-time' },
+  ]
+
+  const addOnsRight = [
+    { name: 'One Page Landing Page', price: '$500 one-time' },
+    { name: 'Landing Page Refresh', price: '$300 one-time' },
+    { name: 'Conversion Audit', price: '$250 one-time' },
+    { name: 'Advanced Funnel Review', price: '$400 one-time' },
+  ]
+
+  const workflow = [
+    {
+      title: 'Audit',
+      desc: 'Review campaigns, tracking, landing pages and conversion flow to identify leaks and wasted spend.',
+    },
+    {
+      title: 'Strategy',
+      desc: 'Build a practical action plan focused on lead quality, tracking clarity and profitable growth.',
+    },
+    {
+      title: 'Implementation',
+      desc: 'Fix campaigns, tracking issues and conversion blockers with a clean execution roadmap.',
+    },
+    {
+      title: 'Scaling',
+      desc: 'Refine based on data, improve efficiency and grow volume once the account foundation is stable.',
+    },
+  ]
+
+  const testimonials = [
+    { name: 'Home Services Client', text: 'The audit helped us see where the wasted spend was happening and what tracking was missing. Clear, practical and useful.', color: 'from-amber-500/20 to-orange-500/5' },
+    { name: 'Local Business Owner', text: 'We finally got clarity on which campaigns were generating real leads. The tracking cleanup alone made a huge difference.', color: 'from-rose-500/20 to-pink-500/5' },
+    { name: 'Lead Gen Client', text: 'Landing page feedback and Google Ads restructuring improved lead quality fast. Much more strategic than a typical PPC freelancer.', color: 'from-fuchsia-500/20 to-purple-500/5' },
+    { name: 'Service Brand', text: 'Very strong understanding of Google Ads, GTM and conversion tracking. The recommendations were specific and immediately actionable.', color: 'from-emerald-500/20 to-green-500/5' },
+    { name: 'Growth Team', text: 'We needed a second set of eyes on our account and tracking. The audit uncovered issues our internal team had missed.', color: 'from-cyan-500/20 to-sky-500/5' },
+    { name: 'Consulting Client', text: 'Professional communication, smart recommendations and a much cleaner approach to campaign structure and measurement.', color: 'from-blue-500/20 to-indigo-500/5' },
+    { name: 'SMB Client', text: 'The reporting and conversion tracking guidance made it easier to understand what was working and what needed fixing.', color: 'from-lime-500/20 to-green-500/5' },
+    { name: 'B2B Service Business', text: 'Good strategic input on lead generation, budget allocation and landing page performance. Very helpful overall.', color: 'from-yellow-500/20 to-amber-500/5' },
+    { name: 'Agency Partner', text: 'Strong technical understanding of tracking and attribution. Helpful support on both Google Ads and analytics side.', color: 'from-violet-500/20 to-purple-500/5' },
+  ]
+
+  const faqs = [
+    {
+      q: 'Do you work with both lead generation and service businesses?',
+      a: 'Yes. I primarily help service businesses and lead generation focused brands improve Google Ads performance, tracking accuracy, and landing page conversion rates.',
+    },
+    {
+      q: 'What’s included in the audit?',
+      a: 'The audit can cover Google Ads account structure, keyword targeting, wasted spend, GA4/GTM tracking setup, landing page issues, and conversion bottlenecks. You’ll get a clear action plan with priorities.',
+    },
+    {
+      q: 'Can you help if I already have campaigns running?',
+      a: 'Absolutely. In many cases the biggest wins come from fixing existing campaign structure, search terms, tracking gaps, and landing page issues rather than starting from scratch.',
+    },
+  ]
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? -1 : index)
+  }
+
+  return (
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,#0f2a44_0%,#07111f_35%,#000000_100%)] text-white">
+      {/* Navbar */}
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6 lg:px-8">
+          <a href="#top" className="flex items-center gap-2">
+            <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 shadow-lg shadow-cyan-500/20" />
             <div>
-              <h2 className="text-[24px] font-black leading-none tracking-[-0.04em] text-white sm:text-[30px]">
-                Paids<span className="text-cyan-400">Media</span>
-              </h2>
-              <div className="mt-1 hidden items-center gap-2 sm:flex">
-                <div className="h-[1px] w-10 bg-cyan-400/60" />
-                <p className="text-[10px] font-medium uppercase tracking-[0.35em] text-gray-500">
-                  Performance Marketing Agency
-                </p>
+              <div className="text-lg font-black tracking-tight">PaidMedia</div>
+              <div className="text-[11px] uppercase tracking-[0.24em] text-white/45">
+                Google Ads & Tracking
               </div>
             </div>
           </a>
 
-          <nav className="ml-auto mr-4 hidden items-center gap-6 text-sm text-gray-300 lg:flex xl:mr-6 xl:gap-8">
-            {navLinks.map((link) => (
-              <a key={link.label} href={link.href} className="transition hover:text-white">
-                {link.label}
-              </a>
-            ))}
+          <nav className="hidden items-center gap-7 text-sm text-white/75 lg:flex">
+            <a href="#services" className="transition hover:text-cyan-300">Services</a>
+            <a href="#results" className="transition hover:text-cyan-300">Results</a>
+            <a href="#pricing" className="transition hover:text-cyan-300">Pricing</a>
+            <a href="#process" className="transition hover:text-cyan-300">Process</a>
+            <a href="#faq" className="transition hover:text-cyan-300">FAQ</a>
+            <a href="#contact" className="rounded-full bg-cyan-400 px-5 py-2.5 font-semibold text-slate-950 transition hover:bg-cyan-300">
+              Get Free Audit
+            </a>
           </nav>
 
-          <a
-            href="https://calendly.com/sumonofficials/free-1-1-consultation"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden shrink-0 items-center justify-center whitespace-nowrap rounded-2xl bg-cyan-400 px-5 py-3 font-semibold text-black shadow-lg shadow-cyan-500/20 transition duration-300 hover:bg-cyan-300 lg:flex xl:px-6"
-          >
-            Book Free Call
-          </a>
-
           <button
-            type="button"
-            onClick={() => setMobileMenuOpen((prev) => !prev)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white lg:hidden"
+            className="inline-flex rounded-xl border border-white/10 p-2.5 text-white lg:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -182,26 +204,19 @@ export default function PaidMediaAgencyWebsite() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="border-t border-white/10 bg-black/80 px-4 py-4 backdrop-blur-xl lg:hidden">
-            <div className="mx-auto flex max-w-7xl flex-col gap-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="rounded-xl border border-white/5 bg-white/5 px-4 py-3 text-sm text-gray-200 transition hover:bg-white/10"
-                >
-                  {link.label}
-                </a>
-              ))}
-
+          <div className="border-t border-white/10 bg-[#07111f]/95 lg:hidden">
+            <div className="mx-auto flex max-w-7xl flex-col px-4 py-4 md:px-6">
+              <a href="#services" onClick={() => setMobileMenuOpen(false)} className="border-b border-white/10 py-3 text-white/80">Services</a>
+              <a href="#results" onClick={() => setMobileMenuOpen(false)} className="border-b border-white/10 py-3 text-white/80">Results</a>
+              <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="border-b border-white/10 py-3 text-white/80">Pricing</a>
+              <a href="#process" onClick={() => setMobileMenuOpen(false)} className="border-b border-white/10 py-3 text-white/80">Process</a>
+              <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="border-b border-white/10 py-3 text-white/80">FAQ</a>
               <a
-                href="https://calendly.com/sumonofficials/free-1-1-consultation"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center justify-center rounded-xl bg-cyan-400 px-4 py-3 font-semibold text-black"
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-4 inline-flex items-center justify-center rounded-full bg-cyan-400 px-5 py-3 font-semibold text-slate-950"
               >
-                Book Free Call
+                Get Free Audit
               </a>
             </div>
           </div>
@@ -209,180 +224,111 @@ export default function PaidMediaAgencyWebsite() {
       </header>
 
       {/* Hero */}
-      <section
-        id="home"
-        className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28"
-      >
-        <div className="absolute left-0 top-20 h-96 w-96 rounded-full bg-blue-500/20 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
-
-        <div className="relative z-10 grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
-            <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-4 py-2 backdrop-blur-xl">
-              <div className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
-              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-cyan-300">
-                Google Ads • Tracking • CRO
-              </p>
+      <section id="top" className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(34,211,238,0.14),transparent_35%),radial-gradient(circle_at_85%_20%,rgba(59,130,246,0.16),transparent_30%)]" />
+        <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 md:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-24">
+          <div className="max-w-3xl">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-200">
+              <CheckCircle2 className="h-4 w-4" />
+              Google Ads + Tracking + Landing Page Optimization
             </div>
 
-            <h1 className="mb-8 text-4xl font-black leading-tight tracking-tight sm:text-5xl md:text-7xl">
+            <h1 className="max-w-4xl text-4xl font-black leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-6xl">
               2026 Growth Systems For Google Ads & Advanced Tracking
             </h1>
 
-            <p className="mb-10 max-w-xl text-base leading-relaxed text-gray-400 sm:text-lg md:text-xl">
-              We build modern performance marketing systems with Google Ads, GA4, GTM,
-              server-side tracking, landing pages, and conversion optimization designed
-              to scale profitable growth.
+            <p className="mt-6 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
+              I help service businesses and lead generation brands improve Google Ads performance,
+              fix conversion tracking, and tighten landing page conversion paths so ad spend turns
+              into better leads and clearer revenue visibility.
             </p>
 
-            <div className="flex flex-col flex-wrap gap-4 sm:flex-row sm:gap-5">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
-                href="https://calendly.com/sumonofficials/free-1-1-consultation"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-2xl bg-white px-8 py-4 font-semibold text-black shadow-2xl transition duration-300 hover:scale-105"
+                href="#contact"
+                className="inline-flex items-center justify-center rounded-full bg-cyan-400 px-6 py-3.5 font-semibold text-slate-950 transition hover:bg-cyan-300"
               >
-                Book Free Audit
+                Book Free Audit <ArrowRight className="ml-2 h-4 w-4" />
               </a>
-
               <a
-                href="#services"
-                className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-8 py-4 font-semibold backdrop-blur-sm transition duration-300 hover:bg-white/10"
+                href="#results"
+                className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3.5 font-semibold text-white transition hover:bg-white/10"
               >
-                View Services
+                View Results
               </a>
             </div>
 
-            <div className="mb-10 mt-12 flex flex-col gap-6 lg:flex-row lg:items-center">
-              <div className="flex flex-wrap -space-x-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-black bg-gradient-to-br from-cyan-400 to-blue-600 text-sm font-bold shadow-lg shadow-cyan-500/20">
-                  SA
-                </div>
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-black bg-gradient-to-br from-purple-500 to-pink-500 text-sm font-bold shadow-lg shadow-purple-500/20">
-                  MK
-                </div>
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-black bg-gradient-to-br from-green-400 to-emerald-600 text-sm font-bold shadow-lg shadow-green-500/20">
-                  JR
-                </div>
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-black bg-gradient-to-br from-orange-400 to-red-500 text-sm font-bold shadow-lg shadow-orange-500/20">
-                  AL
-                </div>
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-black bg-gradient-to-br from-yellow-400 to-amber-600 text-sm font-bold shadow-lg shadow-yellow-500/20">
-                  DT
-                </div>
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-black bg-gradient-to-br from-blue-400 to-indigo-600 text-sm font-bold shadow-lg shadow-blue-500/20">
-                  RM
-                </div>
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-black bg-gradient-to-br from-pink-400 to-rose-600 text-sm font-bold shadow-lg shadow-pink-500/20">
-                  SK
-                </div>
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-black bg-gradient-to-br from-teal-400 to-cyan-600 text-sm font-bold shadow-lg shadow-cyan-500/20">
-                  JW
-                </div>
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-black bg-gradient-to-br from-lime-400 to-green-600 text-sm font-bold shadow-lg shadow-green-500/20">
-                  NP
-                </div>
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-black bg-gradient-to-br from-fuchsia-500 to-purple-700 text-sm font-bold shadow-lg shadow-purple-500/20">
-                  CM
-                </div>
-              </div>
-
-              <div className="max-w-md">
-                <h4 className="mb-2 text-lg font-semibold">10+ Performance Specialists</h4>
-                <p className="text-sm leading-relaxed text-gray-400">
-                  A dedicated team of Google Ads strategists, tracking engineers, CRO
-                  specialists, designers, and analytics experts focused on scalable
-                  business growth.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-8 sm:gap-6">
+            <div className="mt-10 grid grid-cols-3 gap-6 border-t border-white/10 pt-8 text-left">
               <div>
-                <h3 className="text-3xl font-bold">500+</h3>
-                <p className="mt-1 text-sm text-gray-500">Projects Completed</p>
+                <div className="text-2xl font-black text-white">50+</div>
+                <div className="mt-1 text-sm text-white/60">Audits, tracking setups and optimization projects</div>
               </div>
               <div>
-                <h3 className="text-3xl font-bold">7+</h3>
-                <p className="mt-1 text-sm text-gray-500">Years Experience</p>
+                <div className="text-2xl font-black text-white">7+</div>
+                <div className="mt-1 text-sm text-white/60">Years in Google Ads, tracking and performance marketing</div>
               </div>
               <div>
-                <h3 className="text-3xl font-bold">250+</h3>
-                <p className="mt-1 text-sm text-gray-500">Client Reviews</p>
+                <div className="text-2xl font-black text-white">24h</div>
+                <div className="mt-1 text-sm text-white/60">Typical audit response window after submission</div>
               </div>
             </div>
           </div>
 
-          <div>
-            <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/10 to-white/5 p-8 shadow-2xl backdrop-blur-xl">
-              <div className="space-y-6">
-                <div className="rounded-3xl border border-white/10 bg-black/40 p-6 transition hover:border-cyan-400/30">
-                  <div className="mb-4 flex items-center gap-4">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-500/10">
-                      <Target className="h-7 w-7 text-cyan-400" />
+          <div className="flex items-center">
+            <div className="w-full rounded-[28px] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/30 backdrop-blur">
+              <div className="space-y-4">
+                <div className="rounded-3xl border border-white/10 bg-black/30 p-5">
+                  <div className="mb-3 flex items-center gap-3">
+                    <div className="rounded-2xl bg-cyan-400/10 p-3">
+                      <Search className="h-5 w-5 text-cyan-300" />
                     </div>
-
                     <div>
-                      <h3 className="text-xl font-bold">Google Ads Management</h3>
-                      <p className="text-sm text-gray-400">Lead Generation & Scaling</p>
+                      <div className="font-bold">Google Ads Management</div>
+                      <div className="text-sm text-white/55">Search, Performance Max, account cleanup, lead quality improvements</div>
                     </div>
                   </div>
-                  <p className="text-sm leading-relaxed text-gray-400">
-                    Build and optimize campaigns focused on lower CPA, better lead quality,
-                    and scalable profitability.
-                  </p>
                 </div>
 
-                <div className="rounded-3xl border border-white/10 bg-black/40 p-6 transition hover:border-cyan-400/30">
-                  <div className="mb-4 flex items-center gap-4">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/10">
-                      <BarChart3 className="h-7 w-7 text-blue-400" />
+                <div className="rounded-3xl border border-white/10 bg-black/30 p-5">
+                  <div className="mb-3 flex items-center gap-3">
+                    <div className="rounded-2xl bg-cyan-400/10 p-3">
+                      <ShieldCheck className="h-5 w-5 text-cyan-300" />
                     </div>
-
                     <div>
-                      <h3 className="text-xl font-bold">GA4 + GTM Tracking</h3>
-                      <p className="text-sm text-gray-400">Attribution & Conversion Accuracy</p>
+                      <div className="font-bold">Advanced Tracking</div>
+                      <div className="text-sm text-white/55">GA4, GTM, enhanced conversions, form and call attribution</div>
                     </div>
                   </div>
-                  <p className="text-sm leading-relaxed text-gray-400">
-                    Repair broken tracking, build clean conversion events, and improve
-                    attribution visibility across ad platforms.
-                  </p>
                 </div>
 
-                <div className="rounded-3xl border border-white/10 bg-black/40 p-6 transition hover:border-cyan-400/30">
-                  <div className="mb-4 flex items-center gap-4">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-purple-500/10">
-                      <ShieldCheck className="h-7 w-7 text-purple-400" />
+                <div className="rounded-3xl border border-white/10 bg-black/30 p-5">
+                  <div className="mb-3 flex items-center gap-3">
+                    <div className="rounded-2xl bg-cyan-400/10 p-3">
+                      <MousePointerClick className="h-5 w-5 text-cyan-300" />
                     </div>
-
                     <div>
-                      <h3 className="text-xl font-bold">Server-Side Tracking</h3>
-                      <p className="text-sm text-gray-400">Meta CAPI • Enhanced Measurement</p>
+                      <div className="font-bold">Landing Pages</div>
+                      <div className="text-sm text-white/55">Conversion-focused pages built to improve lead flow and campaign efficiency</div>
                     </div>
                   </div>
-                  <p className="text-sm leading-relaxed text-gray-400">
-                    Improve data quality with server-side tracking, enhanced conversions,
-                    and more reliable attribution.
-                  </p>
                 </div>
+              </div>
 
-                <div className="rounded-3xl border border-white/10 bg-black/40 p-6 transition hover:border-cyan-400/30">
-                  <div className="mb-4 flex items-center gap-4">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-500/10">
-                      <MousePointerClick className="h-7 w-7 text-green-400" />
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold">Landing Page CRO</h3>
-                      <p className="text-sm text-gray-400">Better Conversion Rates</p>
-                    </div>
+              <div className="mt-6 grid grid-cols-2 gap-4 text-sm sm:grid-cols-4">
+                {[
+                  'Google Ads',
+                  'Conversion Tracking',
+                  'GTM Setup',
+                  'GA4 Audit',
+                  'Landing Pages',
+                  'Call Tracking',
+                  'Lead Gen',
+                  'Technical Fixes',
+                ].map((item) => (
+                  <div key={item} className="rounded-2xl border border-white/10 bg-black/30 px-3 py-3 text-center text-white/80">
+                    {item}
                   </div>
-                  <p className="text-sm leading-relaxed text-gray-400">
-                    Conversion-focused landing pages and UX improvements to turn more clicks
-                    into qualified leads.
-                  </p>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -390,411 +336,184 @@ export default function PaidMediaAgencyWebsite() {
       </section>
 
       {/* Services */}
-      <section
-        id="services"
-        className="relative overflow-hidden bg-gradient-to-b from-[#050505] via-black to-[#070b14] px-4 py-28 sm:px-6 md:py-36"
-      >
-        <div className="absolute left-0 top-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-blue-500/10 blur-3xl" />
-
-        <div className="relative z-10 mx-auto max-w-7xl">
-          <div className="mb-20 text-center">
-            <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-5 py-2 backdrop-blur-xl">
-              <div className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
-              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-cyan-300">
-                Services
-              </p>
-            </div>
-
-            <h2 className="mx-auto mb-6 max-w-4xl text-4xl font-black leading-tight sm:text-5xl md:text-6xl">
-              Built To Scale <span className="text-cyan-400">Leads, Revenue</span> & Tracking Accuracy
-            </h2>
-
-            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-400">
-              High-performance Google Ads systems, advanced analytics infrastructure,
-              and conversion-focused landing pages designed for local businesses and
-              growing brands.
-            </p>
+      <section id="services" className="mx-auto max-w-7xl px-4 py-16 md:px-6 lg:px-8 lg:py-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="mb-4 inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">
+            Services
           </div>
+          <h2 className="text-3xl font-black leading-tight text-white md:text-5xl">
+            Built To Scale <span className="text-cyan-400">Leads, Revenue</span> & Tracking Accuracy
+          </h2>
+          <p className="mt-5 text-base leading-8 text-white/68 md:text-lg">
+            Practical support for Google Ads, analytics and landing page performance without the fluff.
+          </p>
+        </div>
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-10 backdrop-blur-2xl shadow-[0_0_40px_rgba(34,211,238,0.05)] transition duration-500 hover:-translate-y-2 hover:border-cyan-400/30">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
-
-              <div className="relative z-10">
-                <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl border border-cyan-400/20 bg-cyan-500/10 shadow-lg shadow-cyan-500/10">
-                  <Target className="h-10 w-10 text-cyan-400" />
-                </div>
-
-                <h3 className="mb-6 text-3xl font-black">Google Ads</h3>
-
-                <p className="mb-8 text-[15px] leading-relaxed text-gray-400">
-                  Strategic Google Ads campaign management focused on lead generation,
-                  lower CPA, and scalable growth.
-                </p>
-
-                <div className="space-y-4 text-gray-300">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-cyan-400" /> Search Campaigns
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-cyan-400" /> Performance Max
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-cyan-400" /> Remarketing
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-cyan-400" /> Lead Gen Scaling
-                  </div>
-                </div>
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          {services.map((service) => (
+            <div
+              key={service.title}
+              className="rounded-[28px] border border-white/10 bg-white/[0.04] p-7 shadow-xl shadow-black/20 backdrop-blur"
+            >
+              <div className="mb-5 inline-flex rounded-2xl bg-cyan-400/10 p-3">
+                {service.icon}
               </div>
+              <h3 className="text-2xl font-black">{service.title}</h3>
+              <p className="mt-3 text-white/68 leading-8">{service.desc}</p>
+              <ul className="mt-6 space-y-3">
+                {service.bullets.map((bullet) => (
+                  <li key={bullet} className="flex items-start gap-3 text-white/78">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cyan-400" />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-
-            <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-10 backdrop-blur-2xl shadow-[0_0_40px_rgba(59,130,246,0.05)] transition duration-500 hover:-translate-y-2 hover:border-blue-400/30">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
-
-              <div className="relative z-10">
-                <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl border border-blue-400/20 bg-blue-500/10 shadow-lg shadow-blue-500/10">
-                  <BarChart3 className="h-10 w-10 text-blue-400" />
-                </div>
-
-                <h3 className="mb-6 text-3xl font-black">Tracking & Analytics</h3>
-
-                <p className="mb-8 text-[15px] leading-relaxed text-gray-400">
-                  Accurate conversion tracking, GA4, GTM, and analytics systems that
-                  improve visibility and decision-making.
-                </p>
-
-                <div className="space-y-4 text-gray-300">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-blue-400" /> GA4 Setup
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-blue-400" /> Google Tag Manager
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-blue-400" /> Enhanced Conversions
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-blue-400" /> Attribution Fixes
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-10 backdrop-blur-2xl shadow-[0_0_40px_rgba(168,85,247,0.05)] transition duration-500 hover:-translate-y-2 hover:border-purple-400/30">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-400/10 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
-
-              <div className="relative z-10">
-                <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl border border-purple-400/20 bg-purple-500/10 shadow-lg shadow-purple-500/10">
-                  <ShieldCheck className="h-10 w-10 text-purple-400" />
-                </div>
-
-                <h3 className="mb-6 text-3xl font-black">Server-Side Tracking</h3>
-
-                <p className="mb-8 text-[15px] leading-relaxed text-gray-400">
-                  Advanced tracking for better attribution accuracy using Meta CAPI,
-                  enhanced measurement, and privacy-safe data collection.
-                </p>
-
-                <div className="space-y-4 text-gray-300">
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-purple-400" /> Meta CAPI
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-purple-400" /> Server GTM
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-purple-400" /> Better Attribution
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-purple-400" /> Data Quality
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2">
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-10 backdrop-blur-xl">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-green-500/10">
-                  <MousePointerClick className="h-8 w-8 text-green-400" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-black">Landing Pages & CRO</h3>
-                  <p className="text-sm text-gray-400">Higher Conversion Rate • Better Lead Quality</p>
-                </div>
-              </div>
-
-              <p className="mb-6 text-gray-400">
-                We review landing page messaging, mobile experience, form flow, and
-                conversion bottlenecks to improve lead quality and conversion rate.
-              </p>
-
-              <div className="grid gap-3 text-gray-300 sm:grid-cols-2">
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-green-400" /> CRO-focused page structure
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-green-400" /> Faster mobile UX
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-green-400" /> Better lead forms
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-green-400" /> Messaging improvements
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-10 backdrop-blur-xl">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-cyan-500/10">
-                  <Globe className="h-8 w-8 text-cyan-400" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-black">Reporting & Growth Insights</h3>
-                  <p className="text-sm text-gray-400">Dashboards • KPI visibility • decision support</p>
-                </div>
-              </div>
-
-              <p className="mb-6 text-gray-400">
-                Clean reporting dashboards and performance reviews that show where spend
-                is wasted, what is driving leads, and where growth opportunities exist.
-              </p>
-
-              <div className="grid gap-3 text-gray-300 sm:grid-cols-2">
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-cyan-400" /> Looker Studio dashboards
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-cyan-400" /> Weekly / monthly insights
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-cyan-400" /> Lead source visibility
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-cyan-400" /> Growth recommendations
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
       {/* Results */}
-      <section className="bg-neutral-950 px-4 py-20 sm:px-6 md:py-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-16 text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-cyan-400">
+      <section id="results" className="bg-black/30 py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="mb-4 inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">
               Results
-            </p>
-            <h2 className="mb-6 text-3xl font-black leading-tight sm:text-4xl md:text-5xl">
-              Performance Improvements That Actually Matter
+            </div>
+            <h2 className="text-3xl font-black leading-tight md:text-5xl">
+              Real Performance Improvements From Real Campaigns
             </h2>
-            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-400">
-              We focus on improving conversion quality, tracking accuracy, lead attribution,
-              and campaign profitability.
+            <p className="mt-5 text-base leading-8 text-white/68 md:text-lg">
+              A snapshot of the kinds of improvements I focus on across Google Ads, tracking and lead generation performance.
             </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-4">
-            <div className="rounded-[28px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-              <TrendingUp className="mb-5 h-10 w-10 text-cyan-400" />
-              <h3 className="mb-2 text-4xl font-black">38%</h3>
-              <p className="text-sm leading-relaxed text-gray-400 md:text-base">
-                Average reduction in wasted ad spend after tracking optimization.
-              </p>
-            </div>
-
-            <div className="rounded-[28px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-              <CheckCircle2 className="mb-5 h-10 w-10 text-green-400" />
-              <h3 className="mb-2 text-4xl font-black">95%</h3>
-              <p className="text-sm leading-relaxed text-gray-400 md:text-base">
-                Conversion tracking accuracy across Google Ads and GA4 setups.
-              </p>
-            </div>
-
-            <div className="rounded-[28px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-              <Zap className="mb-5 h-10 w-10 text-yellow-400" />
-              <h3 className="mb-2 text-4xl font-black">2.4x</h3>
-              <p className="text-sm leading-relaxed text-gray-400 md:text-base">
-                Higher lead quality after campaign restructuring and attribution fixes.
-              </p>
-            </div>
-
-            <div className="rounded-[28px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-              <Star className="mb-5 h-10 w-10 text-purple-400" />
-              <h3 className="mb-2 text-4xl font-black">50+</h3>
-              <p className="text-sm leading-relaxed text-gray-400 md:text-base">
-                Successful projects across lead generation and eCommerce industries.
-              </p>
-            </div>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+            {caseStudies.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-[24px] border border-white/10 bg-white/[0.04] p-6 shadow-lg shadow-black/20"
+              >
+                <div className="text-sm uppercase tracking-[0.22em] text-cyan-300">{item.title}</div>
+                <div className="mt-3 text-3xl font-black text-white">{item.stat}</div>
+                <p className="mt-4 text-sm leading-7 text-white/68">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Pricing */}
-      <section
-        id="pricing"
-        className="border-y border-white/5 bg-neutral-900 px-6 py-28 text-white"
-      >
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-20 text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-cyan-400">
-              Pricing
-            </p>
+      {/* Metrics */}
+      <section className="mx-auto max-w-7xl px-4 py-16 md:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="mb-4 inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">
+            Metrics
+          </div>
+          <h2 className="text-3xl font-black leading-tight md:text-5xl">
+            Built Around Real Performance Metrics
+          </h2>
+          <p className="mt-5 text-base leading-8 text-white/68 md:text-lg">
+            The goal is simple: lower wasted spend, better lead quality, cleaner tracking and clearer decision-making.
+          </p>
+        </div>
 
-            <h2 className="mb-6 text-4xl font-black leading-tight md:text-6xl">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          {metrics.map((item) => (
+            <div key={item.value} className="rounded-[24px] border border-white/10 bg-white/[0.04] p-6">
+              <div className="text-4xl font-black text-cyan-300">{item.value}</div>
+              <p className="mt-4 text-sm leading-7 text-white/68">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section id="pricing" className="bg-black/30 py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="mb-4 inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">
+              Pricing
+            </div>
+            <h2 className="text-3xl font-black leading-tight md:text-5xl">
               Transparent Pricing For Performance Marketing
             </h2>
-
-            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-400">
-              Flexible pricing designed for local businesses, lead generation companies,
-              and growing brands.
+            <p className="mt-5 text-base leading-8 text-white/68 md:text-lg">
+              Choose a one-time audit, monthly optimization support, or a custom setup based on your current growth stage.
             </p>
           </div>
 
-          <div className="mb-20 grid gap-8 lg:grid-cols-3">
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-10 backdrop-blur-xl transition duration-300 hover:border-cyan-400/20">
-              <p className="mb-4 font-medium text-gray-400">Starter</p>
-              <h3 className="mb-4 text-4xl font-black">$600 - $1,200</h3>
-              <p className="mb-8 text-gray-400">Best for local businesses starting or needing cleanup.</p>
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {pricing.map((plan, idx) => (
+              <div
+                key={plan.title}
+                className={`rounded-[28px] border p-7 shadow-xl ${
+                  idx === 1
+                    ? 'border-cyan-400/30 bg-gradient-to-b from-cyan-500/15 to-blue-500/10'
+                    : 'border-white/10 bg-white/[0.04]'
+                }`}
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="text-2xl font-black">{plan.title}</h3>
+                  {plan.badge && (
+                    <span className="rounded-full bg-cyan-400 px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-950">
+                      {plan.badge}
+                    </span>
+                  )}
+                </div>
 
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex gap-3"><CheckCircle2 className="h-5 w-5 text-cyan-400" /> Google Ads account audit</li>
-                <li className="flex gap-3"><CheckCircle2 className="h-5 w-5 text-cyan-400" /> Campaign cleanup / restructure</li>
-                <li className="flex gap-3"><CheckCircle2 className="h-5 w-5 text-cyan-400" /> Conversion tracking review</li>
-                <li className="flex gap-3"><CheckCircle2 className="h-5 w-5 text-cyan-400" /> Basic reporting setup</li>
-              </ul>
-            </div>
+                <div className="mt-5 text-4xl font-black">{plan.price}</div>
 
-            <div className="rounded-[2rem] border border-cyan-400/20 bg-gradient-to-b from-cyan-500/10 to-blue-500/5 p-10 backdrop-blur-xl shadow-2xl shadow-cyan-500/10">
-              <div className="mb-4 inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-cyan-300">
-                Most Popular
+                <ul className="mt-6 space-y-3">
+                  {plan.items.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-white/80">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-cyan-400" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href="#contact"
+                  className={`mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 font-semibold transition ${
+                    idx === 1
+                      ? 'bg-cyan-400 text-slate-950 hover:bg-cyan-300'
+                      : 'border border-white/15 bg-white/5 text-white hover:bg-white/10'
+                  }`}
+                >
+                  {plan.cta}
+                </a>
               </div>
-              <h3 className="mb-4 text-4xl font-black">$1,500 - $3,000</h3>
-              <p className="mb-8 text-gray-300">
-                For businesses ready to scale with better tracking and stronger lead flow.
-              </p>
-
-              <ul className="space-y-3 text-gray-200">
-                <li className="flex gap-3"><CheckCircle2 className="h-5 w-5 text-cyan-400" /> Full Google Ads management</li>
-                <li className="flex gap-3"><CheckCircle2 className="h-5 w-5 text-cyan-400" /> GA4 + GTM setup / fixes</li>
-                <li className="flex gap-3"><CheckCircle2 className="h-5 w-5 text-cyan-400" /> Landing page CRO recommendations</li>
-                <li className="flex gap-3"><CheckCircle2 className="h-5 w-5 text-cyan-400" /> Monthly optimization + reporting</li>
-              </ul>
-            </div>
-
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-10 backdrop-blur-xl transition duration-300 hover:border-purple-400/20">
-              <p className="mb-4 font-medium text-gray-400">Advanced Growth</p>
-              <h3 className="mb-4 text-4xl font-black">$3,500+</h3>
-              <p className="mb-8 text-gray-400">
-                For businesses needing ads, advanced tracking, CRO, and deeper attribution support.
-              </p>
-
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex gap-3"><CheckCircle2 className="h-5 w-5 text-purple-400" /> Server-side tracking</li>
-                <li className="flex gap-3"><CheckCircle2 className="h-5 w-5 text-purple-400" /> Multi-platform attribution</li>
-                <li className="flex gap-3"><CheckCircle2 className="h-5 w-5 text-purple-400" /> Landing page strategy / redesign support</li>
-                <li className="flex gap-3"><CheckCircle2 className="h-5 w-5 text-purple-400" /> Advanced reporting & scale planning</li>
-              </ul>
-            </div>
+            ))}
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-2">
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-10 backdrop-blur-xl">
-              <h3 className="mb-5 text-2xl font-black">Website / Landing Page Packages</h3>
-              <p className="mb-8 text-gray-400">
-                Conversion-focused pages designed for paid traffic, local lead generation,
-                and service businesses.
-              </p>
-
-              <div className="space-y-8">
-                <div>
-                  <div className="mb-3 flex items-center justify-between">
-                    <h4 className="text-xl font-bold">Starter Website</h4>
-                    <span className="font-bold text-cyan-400">$700 - $1,500</span>
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            <div className="rounded-[28px] border border-white/10 bg-white/[0.04] p-7">
+              <div className="mb-5 flex items-center gap-3">
+                <LineChart className="h-6 w-6 text-cyan-400" />
+                <h3 className="text-2xl font-black">Analytics & Attribution</h3>
+              </div>
+              <div className="space-y-4">
+                {addOnsLeft.map((item) => (
+                  <div key={item.name} className="flex items-center justify-between gap-4 rounded-2xl border border-white/8 bg-black/20 px-4 py-4">
+                    <span className="font-medium text-white/85">{item.name}</span>
+                    <span className="text-cyan-300">{item.price}</span>
                   </div>
-
-                  <ul className="space-y-2 text-gray-400">
-                    <li>3-5 Pages</li>
-                    <li>Fast mobile-first layout</li>
-                    <li>Lead form integration</li>
-                    <li>Basic tracking setup</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <div className="mb-3 flex items-center justify-between">
-                    <h4 className="text-xl font-bold">Growth Website</h4>
-                    <span className="font-bold text-blue-400">$1,500 - $3,000</span>
-                  </div>
-
-                  <ul className="space-y-2 text-gray-400">
-                    <li>5-10 Pages</li>
-                    <li>SEO structure</li>
-                    <li>Tracking setup</li>
-                    <li>Responsive layout</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <div className="mb-3 flex items-center justify-between">
-                    <h4 className="text-xl font-bold">Advanced Funnel</h4>
-                    <span className="font-bold text-purple-400">$2,000 - $5,000+</span>
-                  </div>
-
-                  <ul className="space-y-2 text-gray-400">
-                    <li>CRO-focused design</li>
-                    <li>Custom landing pages</li>
-                    <li>Advanced integrations</li>
-                    <li>Analytics setup</li>
-                  </ul>
-                </div>
+                ))}
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-10 backdrop-blur-xl">
-              <h3 className="mb-5 text-2xl font-black">What You Get</h3>
-              <p className="mb-8 text-gray-400">
-                Every engagement is focused on fixing wasted spend, improving tracking,
-                and helping you scale with cleaner data.
-              </p>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
-                  <LineChart className="mb-4 h-8 w-8 text-cyan-400" />
-                  <h4 className="mb-2 font-bold">Performance Clarity</h4>
-                  <p className="text-sm text-gray-400">
-                    Clear visibility into leads, CPA, conversion quality, and attribution.
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
-                  <ShieldCheck className="mb-4 h-8 w-8 text-purple-400" />
-                  <h4 className="mb-2 font-bold">Tracking Accuracy</h4>
-                  <p className="text-sm text-gray-400">
-                    Better data collection across GA4, GTM, ad platforms, and server-side setups.
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
-                  <Target className="mb-4 h-8 w-8 text-green-400" />
-                  <h4 className="mb-2 font-bold">Lead Quality Focus</h4>
-                  <p className="text-sm text-gray-400">
-                    Campaign strategy designed around qualified leads, not vanity metrics.
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
-                  <MousePointerClick className="mb-4 h-8 w-8 text-yellow-400" />
-                  <h4 className="mb-2 font-bold">CRO Support</h4>
-                  <p className="text-sm text-gray-400">
-                    Recommendations to improve page messaging, form flow, and conversion rates.
-                  </p>
-                </div>
+            <div className="rounded-[28px] border border-white/10 bg-white/[0.04] p-7">
+              <div className="mb-5 flex items-center gap-3">
+                <Globe className="h-6 w-6 text-cyan-400" />
+                <h3 className="text-2xl font-black">Landing Pages & Funnel</h3>
+              </div>
+              <div className="space-y-4">
+                {addOnsRight.map((item) => (
+                  <div key={item.name} className="flex items-center justify-between gap-4 rounded-2xl border border-white/8 bg-black/20 px-4 py-4">
+                    <span className="font-medium text-white/85">{item.name}</span>
+                    <span className="text-cyan-300">{item.price}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -802,154 +521,54 @@ export default function PaidMediaAgencyWebsite() {
       </section>
 
       {/* Process */}
-      <section className="bg-neutral-950 px-4 py-20 sm:px-6 md:py-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-14 text-center md:mb-20">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-cyan-400">
-              Process
-            </p>
-
-            <h2 className="text-3xl font-black leading-tight sm:text-4xl md:text-5xl">
-              Simple, Data-Driven Workflow
-            </h2>
+      <section id="process" className="mx-auto max-w-7xl px-4 py-16 md:px-6 lg:px-8 lg:py-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="mb-4 inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">
+            Process
           </div>
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4 md:gap-8">
-            {workflowSteps.map((step, index) => (
-              <div
-                key={step.title}
-                className="relative min-h-[240px] rounded-[28px] border border-white/10 bg-white/5 p-6 md:rounded-3xl md:p-8"
-              >
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-cyan-500/10 text-lg font-black text-cyan-400">
-                  {index + 1}
-                </div>
-                <h3 className="mb-4 text-xl font-bold md:text-2xl">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-gray-400 md:text-base">
-                  {step.text}
-                </p>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-3xl font-black leading-tight md:text-5xl">
+            Simple, Data-Driven Workflow
+          </h2>
+          <p className="mt-5 text-base leading-8 text-white/68 md:text-lg">
+            A straightforward process focused on diagnosis, fixes and growth rather than busywork.
+          </p>
         </div>
-      </section>
 
-      {/* Case Studies */}
-      <section id="case-studies" className="bg-neutral-950 px-4 py-28 sm:px-6">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-20 flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
-            <div>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-cyan-400">
-                Case Studies
-              </p>
-
-              <h2 className="max-w-3xl text-4xl font-black leading-tight md:text-5xl">
-                Real Performance Improvements From Real Campaigns
-              </h2>
+        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {workflow.map((item) => (
+            <div key={item.title} className="rounded-[24px] border border-white/10 bg-white/[0.04] p-6">
+              <div className="text-xl font-black text-white">{item.title}</div>
+              <p className="mt-4 text-sm leading-7 text-white/68">{item.desc}</p>
             </div>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-5">
-            <div className="rounded-[2rem] border border-cyan-400/10 bg-gradient-to-br from-cyan-500/10 to-blue-500/5 p-8">
-              <p className="mb-3 text-sm font-semibold text-cyan-400">Garage Door Repair</p>
-              <h3 className="mb-6 text-2xl font-black">Google Ads Optimization</h3>
-              <div className="mb-6 flex items-end gap-4">
-                <div>
-                  <p className="text-sm text-gray-500">Before</p>
-                  <h4 className="text-3xl font-black">$89</h4>
-                </div>
-                <ArrowRight className="text-cyan-400" />
-                <div>
-                  <p className="text-sm text-gray-500">After</p>
-                  <h4 className="text-3xl font-black text-cyan-400">$41</h4>
-                </div>
-              </div>
-              <p className="text-sm leading-relaxed text-gray-400">
-                Reduced cost per lead with campaign restructuring and tracking optimization.
-              </p>
-            </div>
-
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-              <p className="mb-3 text-sm font-semibold text-purple-400">eCommerce Tracking</p>
-              <h3 className="mb-6 text-2xl font-black">Server-Side Tracking</h3>
-              <div className="mb-6">
-                <div className="mb-2 flex justify-between text-sm">
-                  <span className="text-gray-400">Tracking Accuracy</span>
-                  <span className="text-cyan-400">95%</span>
-                </div>
-                <div className="h-3 overflow-hidden rounded-full bg-white/5">
-                  <div className="h-full w-[95%] rounded-full bg-gradient-to-r from-cyan-400 to-blue-500" />
-                </div>
-              </div>
-              <p className="text-sm leading-relaxed text-gray-400">
-                Implemented advanced attribution and Meta CAPI infrastructure.
-              </p>
-            </div>
-
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-              <p className="mb-3 text-sm font-semibold text-green-400">Roofing Company</p>
-              <h3 className="mb-6 text-2xl font-black">Lead Generation Scaling</h3>
-              <h4 className="mb-3 text-5xl font-black text-green-400">2.7x</h4>
-              <p className="mb-5 text-gray-500">Increase In Qualified Leads</p>
-              <p className="text-sm leading-relaxed text-gray-400">
-                Improved lead quality using better keyword targeting and conversion tracking.
-              </p>
-            </div>
-
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-              <p className="mb-3 text-sm font-semibold text-yellow-400">HVAC Campaign</p>
-              <h3 className="mb-6 text-2xl font-black">Call Tracking Setup</h3>
-              <h4 className="mb-3 text-5xl font-black text-yellow-400">43%</h4>
-              <p className="mb-5 text-gray-500">Lower Cost Per Call</p>
-              <p className="text-sm leading-relaxed text-gray-400">
-                Integrated advanced call tracking with Google Ads conversion attribution.
-              </p>
-            </div>
-
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-              <p className="mb-3 text-sm font-semibold text-blue-400">Local Clinic</p>
-              <h3 className="mb-6 text-2xl font-black">Landing Page Optimization</h3>
-              <h4 className="mb-3 text-5xl font-black text-blue-400">58%</h4>
-              <p className="mb-5 text-gray-500">Higher Conversion Rate</p>
-              <p className="text-sm leading-relaxed text-gray-400">
-                Redesigned landing pages for better mobile conversion performance.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
       {/* Testimonials */}
-      <section
-        id="testimonials"
-        className="border-y border-white/5 bg-black px-6 py-28"
-      >
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-20 text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-cyan-400">
-              Testimonials
+      <section className="bg-black/30 py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="mb-4 inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">
+              Reviews
+            </div>
+            <h2 className="text-3xl font-black leading-tight md:text-5xl">
+              Trusted By Growing Businesses
+            </h2>
+            <p className="mt-5 text-base leading-8 text-white/68 md:text-lg">
+              Examples of the kind of feedback I aim to earn through clear strategy, better tracking and stronger campaign execution.
             </p>
-
-            <h2 className="text-5xl font-black">Trusted By Growing Businesses</h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {testimonials.map((item) => (
               <div
                 key={item.name}
-                className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
+                className={`rounded-[24px] border border-white/10 bg-gradient-to-br ${item.color} p-6`}
               >
-                <div className="mb-5 flex items-center gap-4">
-                  <div
-                    className={`flex h-12 w-12 items-center justify-center rounded-full font-bold ${item.badge}`}
-                  >
-                    {item.initials}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold">{item.name}</h4>
-                    <p className="text-sm text-gray-500">{item.role}</p>
-                  </div>
+                <div className="text-sm font-semibold uppercase tracking-[0.22em] text-white/70">
+                  {item.name}
                 </div>
-                <p className="text-[15px] leading-relaxed text-gray-300">“{item.quote}”</p>
+                <p className="mt-4 text-sm leading-7 text-white/82">{item.text}</p>
               </div>
             ))}
           </div>
@@ -957,321 +576,196 @@ export default function PaidMediaAgencyWebsite() {
       </section>
 
       {/* FAQ */}
-      <section
-        id="faq"
-        className="scroll-mt-24 border-y border-white/5 bg-black px-4 py-20 sm:px-6 md:py-28"
-      >
-        <div className="mx-auto max-w-5xl">
-          <div className="mb-16 text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-cyan-400">
-              FAQ
-            </p>
-            <h2 className="mb-5 text-3xl font-black sm:text-4xl md:text-5xl">
-              Frequently Asked Questions
-            </h2>
+      <section id="faq" className="mx-auto max-w-5xl px-4 py-16 md:px-6 lg:px-8 lg:py-24">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="mb-4 inline-flex rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300">
+            FAQ
           </div>
+          <h2 className="text-3xl font-black leading-tight md:text-5xl">
+            Frequently Asked Questions
+          </h2>
+        </div>
 
-          <div className="space-y-6">
-            <div className="rounded-[28px] border border-white/10 bg-white/5 p-8">
-              <h3 className="mb-3 text-xl font-bold">Do you work with local businesses?</h3>
-              <p className="text-sm leading-relaxed text-gray-400 md:text-base">
-                Yes. We specialize in local lead generation campaigns for service
-                businesses including garage door repair, roofing, HVAC, plumbing,
-                clinics, and more.
-              </p>
+        <div className="mt-12 space-y-4">
+          {faqs.map((item, index) => (
+            <div key={item.q} className="overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.04]">
+              <button
+                onClick={() => toggleFaq(index)}
+                className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+              >
+                <span className="text-lg font-semibold text-white">{item.q}</span>
+                {openFaq === index ? (
+                  <ChevronUp className="h-5 w-5 shrink-0 text-cyan-300" />
+                ) : (
+                  <ChevronDown className="h-5 w-5 shrink-0 text-cyan-300" />
+                )}
+              </button>
+              {openFaq === index && (
+                <div className="border-t border-white/10 px-6 pb-6 pt-4 text-white/72 leading-8">
+                  {item.a}
+                </div>
+              )}
             </div>
-
-            <div className="rounded-[28px] border border-white/10 bg-white/5 p-8">
-              <h3 className="mb-3 text-xl font-bold">What tracking platforms do you support?</h3>
-              <p className="text-sm leading-relaxed text-gray-400 md:text-base">
-                Google Ads, GA4, GTM, Meta Pixel, Meta CAPI, TikTok Pixel, Pinterest
-                tracking, enhanced conversions, and server-side tracking.
-              </p>
-            </div>
-
-            <div className="rounded-[28px] border border-white/10 bg-white/5 p-8">
-              <h3 className="mb-3 text-xl font-bold">Can you fix broken conversion tracking?</h3>
-              <p className="text-sm leading-relaxed text-gray-400 md:text-base">
-                Absolutely. We audit and repair inaccurate conversion setups, duplicate
-                tracking, attribution issues, and missing conversion signals.
-              </p>
-            </div>
-
-            <div className="rounded-[28px] border border-white/10 bg-white/5 p-8">
-              <h3 className="mb-3 text-xl font-bold">Do you also handle landing pages and CRO?</h3>
-              <p className="text-sm leading-relaxed text-gray-400 md:text-base">
-                Yes. We review landing page messaging, mobile experience, form flow,
-                and conversion bottlenecks to improve lead quality and conversion rate.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* CTA / Lead Form */}
-      <section
-        id="contact"
-        className="relative scroll-mt-24 overflow-hidden bg-neutral-950 px-4 py-20 sm:px-6 md:py-32"
-      >
-        <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl" />
-
-        <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-cyan-300/20 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 p-6 shadow-2xl shadow-blue-500/20 sm:p-10 md:p-16">
-          <div className="absolute inset-0 bg-cyan-500/5" />
-
-          <form
-            name="audit-request"
-            method="POST"
-            data-netlify="true"
-            action="/thank-you"
-            className="relative z-10 text-center"
-          >
-            <input type="hidden" name="form-name" value="audit-request" />
-            <input type="hidden" name="subject" value="New PaidsMedia Audit Request" />
-            <input type="hidden" name="source" value="PaidsMedia Website Final Lead Form" />
-            <input type="hidden" name="pageUrl" value={trackingFields.pageUrl} />
-            <input type="hidden" name="referrer" value={trackingFields.referrer} />
-            <input type="hidden" name="utm_source" value={trackingFields.utm_source} />
-            <input type="hidden" name="utm_medium" value={trackingFields.utm_medium} />
-            <input type="hidden" name="utm_campaign" value={trackingFields.utm_campaign} />
-            <input type="hidden" name="utm_term" value={trackingFields.utm_term} />
-            <input type="hidden" name="utm_content" value={trackingFields.utm_content} />
-
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white">
+      {/* Contact / Lead Form */}
+      <section id="contact" className="mx-auto max-w-7xl px-4 pb-16 md:px-6 lg:px-8 lg:pb-24">
+        <div className="rounded-[36px] bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 px-6 py-10 shadow-2xl shadow-cyan-500/10 md:px-10 md:py-14 lg:px-16">
+          <div className="mx-auto max-w-5xl text-center">
+            <div className="mb-5 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/90">
               Free Google Ads & Tracking Audit
             </div>
 
-            <h2 className="mx-auto mb-5 max-w-4xl text-2xl font-black leading-tight sm:text-4xl md:text-6xl">
+            <h2 className="text-3xl font-black leading-tight text-white md:text-5xl lg:text-6xl">
               Ready To Scale Your Business With Better Ads & Accurate Tracking?
             </h2>
 
-            <p className="mx-auto max-w-3xl text-base leading-8 text-blue-50/90 sm:text-xl">
-              Tell us a bit about your business and current marketing setup. We’ll review
-              your account, identify wasted spend, tracking issues, and show where growth
-              opportunities exist.
+            <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-white/90 md:text-xl">
+              Get a complete performance audit covering Google Ads, GA4, GTM, conversion
+              tracking, landing pages, and wasted ad spend opportunities.
             </p>
 
-            <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-2">
-              <input
-                type="text"
-                name="name"
-                required
-                placeholder="Your Name"
-                className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl placeholder:text-blue-100/60 focus:border-cyan-400/40"
-              />
-
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="Work Email Address"
-                className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl placeholder:text-blue-100/60 focus:border-cyan-400/40"
-              />
-
-              <input
-                type="text"
-                name="website"
-                placeholder="Website URL"
-                className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl placeholder:text-blue-100/60 focus:border-cyan-400/40"
-              />
-
-              <input
-                type="text"
-                name="businessType"
-                placeholder="Business Type / Niche"
-                className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl placeholder:text-blue-100/60 focus:border-cyan-400/40"
-              />
-            </div>
-
-            <div className="mx-auto mt-4 grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-2">
-              <select
-                name="adSpend"
-                defaultValue=""
-                className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl focus:border-white/40"
-              >
-                <option value="" disabled className="text-black">
-                  Monthly Ad Spend
-                </option>
-                <option className="text-black">$500 - $2,000</option>
-                <option className="text-black">$2,000 - $10,000</option>
-                <option className="text-black">$10,000 - $25,000</option>
-                <option className="text-black">$25,000+</option>
-              </select>
-
-              <select
-                name="serviceNeeded"
-                defaultValue=""
-                className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl focus:border-white/40"
-              >
-                <option value="" disabled className="text-black">
-                  What do you need help with?
-                </option>
-                <option className="text-black">Google Ads Management</option>
-                <option className="text-black">Tracking / GA4 / GTM Fixes</option>
-                <option className="text-black">Server-Side Tracking</option>
-                <option className="text-black">Landing Page / CRO</option>
-                <option className="text-black">Full Funnel Growth Support</option>
-              </select>
-
-              <select
-                name="currentPlatform"
-                defaultValue=""
-                className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl focus:border-white/40"
-              >
-                <option value="" disabled className="text-black">
-                  Current Ad Platform
-                </option>
-                <option className="text-black">Google Ads</option>
-                <option className="text-black">Meta Ads</option>
-                <option className="text-black">Google Ads + Meta Ads</option>
-                <option className="text-black">Not running ads yet</option>
-              </select>
-
-              <input
-                type="text"
-                name="targetLocation"
-                placeholder="Target Country / City"
-                className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl placeholder:text-blue-100/60 focus:border-cyan-400/40"
-              />
-            </div>
-
-            <div className="mx-auto mt-4 grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-2">
-              <input
-                type="text"
-                name="phone"
-                placeholder="Phone / WhatsApp (optional)"
-                className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl placeholder:text-blue-100/60 focus:border-cyan-400/40"
-              />
-
-              <select
-                name="preferredContact"
-                defaultValue=""
-                className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl focus:border-white/40"
-              >
-                <option value="" disabled className="text-black">
-                  Preferred Contact Method
-                </option>
-                <option className="text-black">Email</option>
-                <option className="text-black">WhatsApp</option>
-                <option className="text-black">Zoom Call</option>
-              </select>
-            </div>
-
-            <textarea
-              name="message"
-              rows="5"
-              placeholder="Tell us about your current campaigns, goals, or tracking issues..."
-              className="mx-auto mt-4 block w-full max-w-5xl rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl placeholder:text-blue-100/60 focus:border-cyan-400/40"
-            />
-
-            <button
-              type="submit"
-              className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-black px-10 py-5 text-lg font-bold text-white shadow-2xl shadow-black/30 transition duration-300 hover:scale-105"
+            <form
+              name="audit-request"
+              method="POST"
+              data-netlify="true"
+              action="/thank-you.html"
+              className="mx-auto mt-10 max-w-4xl"
             >
-              Request Free Audit
-              <ArrowRight className="h-5 w-5" />
-            </button>
+              <input type="hidden" name="form-name" value="audit-request" />
 
-            <div className="mt-10 flex flex-wrap justify-center gap-6 text-sm text-blue-50/90">
-              <div>✔ Google Ads Audit</div>
-              <div>✔ Tracking Review</div>
-              <div>✔ Landing Page Analysis</div>
-              <div>✔ Growth Recommendations</div>
-            </div>
-          </form>
+              <div className="grid gap-4 md:grid-cols-2">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                  className="h-16 rounded-2xl border border-white/20 bg-white/10 px-5 text-white placeholder:text-white/60 outline-none transition focus:border-white/40 focus:bg-white/15"
+                />
+
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Business Email Address"
+                  required
+                  className="h-16 rounded-2xl border border-white/20 bg-white/10 px-5 text-white placeholder:text-white/60 outline-none transition focus:border-white/40 focus:bg-white/15"
+                />
+
+                <input
+                  type="url"
+                  name="website"
+                  placeholder="Website URL"
+                  className="h-16 rounded-2xl border border-white/20 bg-white/10 px-5 text-white placeholder:text-white/60 outline-none transition focus:border-white/40 focus:bg-white/15"
+                />
+
+                <select
+                  name="monthly_ad_spend"
+                  required
+                  defaultValue=""
+                  className="h-16 rounded-2xl border border-white/20 bg-white/10 px-5 text-white outline-none transition focus:border-white/40 focus:bg-white/15"
+                >
+                  <option value="" disabled className="text-slate-900">
+                    Monthly Ad Spend
+                  </option>
+                  <option value="Under $1k" className="text-slate-900">Under $1k</option>
+                  <option value="$1k-$3k" className="text-slate-900">$1k - $3k</option>
+                  <option value="$3k-$10k" className="text-slate-900">$3k - $10k</option>
+                  <option value="$10k-$30k" className="text-slate-900">$10k - $30k</option>
+                  <option value="$30k+" className="text-slate-900">$30k+</option>
+                </select>
+              </div>
+
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="Tell me a bit about your current Google Ads or tracking challenges..."
+                className="mt-4 w-full rounded-2xl border border-white/20 bg-white/10 px-5 py-4 text-white placeholder:text-white/60 outline-none transition focus:border-white/40 focus:bg-white/15"
+              />
+
+              <button
+                type="submit"
+                className="mt-6 inline-flex items-center justify-center rounded-full bg-black px-10 py-5 text-lg font-bold text-white shadow-xl transition hover:translate-y-[-1px] hover:bg-[#081018]"
+              >
+                Request Free Audit <ArrowRight className="ml-3 h-5 w-5" />
+              </button>
+
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm text-white/90">
+                <span>✓ Google Ads Audit</span>
+                <span>✓ Tracking Review</span>
+                <span>✓ Landing Page Analysis</span>
+                <span>✓ Growth Recommendations</span>
+              </div>
+            </form>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/10 bg-black px-6 py-14">
-        <div className="mx-auto grid max-w-7xl gap-10 items-start md:grid-cols-4">
+      <footer className="border-t border-white/10 bg-black/40">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr] lg:px-8">
           <div>
-            <div className="mb-5 flex items-center gap-4">
-              <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-[18px] border border-cyan-400/20 bg-black shadow-[0_0_25px_rgba(34,211,238,0.18)]">
-                <div className="absolute inset-[1px] rounded-[17px] bg-black" />
-                <div className="relative flex h-5 items-end gap-[2px]">
-                  <div className="h-2 w-[3px] rounded-full bg-cyan-400" />
-                  <div className="h-4 w-[3px] rounded-full bg-white" />
-                  <div className="h-3 w-[3px] rounded-full bg-cyan-400" />
-                  <div className="h-5 w-[3px] rounded-full bg-white" />
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600" />
+              <div>
+                <div className="text-lg font-black">PaidMedia</div>
+                <div className="text-[11px] uppercase tracking-[0.24em] text-white/45">
+                  Google Ads & Tracking
                 </div>
               </div>
+            </div>
 
-              <div>
-                <h3 className="text-2xl font-black tracking-[-0.04em] text-white">
-                  Paids<span className="text-cyan-400">Media</span>
-                </h3>
+            <p className="mt-5 max-w-md text-sm leading-7 text-white/62">
+              Helping businesses improve Google Ads performance, tracking accuracy and landing page conversion with practical strategy and technical execution.
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-4 text-sm text-white/70">
+              <div className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-cyan-300" />
+                hello@paidsmedia.com
+              </div>
+              <div className="flex items-center gap-2">
+                <PhoneCall className="h-4 w-4 text-cyan-300" />
+                Strategy & audit support
               </div>
             </div>
-
-            <p className="max-w-sm leading-relaxed text-gray-400">
-              Performance marketing systems focused on Google Ads, advanced tracking,
-              analytics, and conversion optimization.
-            </p>
           </div>
 
           <div>
-            <h4 className="mb-5 text-lg font-semibold">Contact</h4>
-
-            <div className="space-y-4 text-gray-400">
-              <a
-                href="mailto:sumon@paidsmedia.com"
-                className="flex items-center gap-3 transition hover:text-white"
-              >
-                <Mail className="h-5 w-5 text-cyan-400" />
-                sumon@paidsmedia.com
-              </a>
-
-              <a
-                href="https://wa.me/8801793998115"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 transition hover:text-white"
-              >
-                <MessageCircle className="h-5 w-5 text-green-400" />
-                WhatsApp Chat
-              </a>
+            <div className="text-sm font-black uppercase tracking-[0.24em] text-white/50">Sections</div>
+            <div className="mt-5 space-y-3 text-sm text-white/70">
+              <a href="#services" className="block transition hover:text-cyan-300">Services</a>
+              <a href="#results" className="block transition hover:text-cyan-300">Results</a>
+              <a href="#pricing" className="block transition hover:text-cyan-300">Pricing</a>
+              <a href="#process" className="block transition hover:text-cyan-300">Process</a>
+              <a href="#faq" className="block transition hover:text-cyan-300">FAQ</a>
             </div>
           </div>
 
           <div>
-            <h4 className="mb-5 text-lg font-semibold">Quick Links</h4>
-            <div className="space-y-3 text-gray-400">
-              {navLinks.map((link) => (
-                <a key={link.label} href={link.href} className="block transition hover:text-white">
-                  {link.label}
-                </a>
-              ))}
+            <div className="text-sm font-black uppercase tracking-[0.24em] text-white/50">Contact</div>
+            <div className="mt-5 space-y-3 text-sm text-white/70">
+              <div className="flex items-start gap-2">
+                <Mail className="mt-0.5 h-4 w-4 text-cyan-300" />
+                <span>hello@paidsmedia.com</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <Globe className="mt-0.5 h-4 w-4 text-cyan-300" />
+                <span>paidsmedia.com</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <MapPin className="mt-0.5 h-4 w-4 text-cyan-300" />
+                <span>Remote support for service businesses and lead gen brands</span>
+              </div>
             </div>
           </div>
+        </div>
 
-          <div>
-            <h4 className="mb-5 text-lg font-semibold">Social Links</h4>
-            <div className="space-y-3 text-gray-400">
-              <a
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block transition hover:text-white"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://www.facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block transition hover:text-white"
-              >
-                Facebook
-              </a>
-              <a
-                href="https://www.instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block transition hover:text-white"
-              >
-                Instagram
-              </a>
-            </div>
+        <div className="border-t border-white/10">
+          <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 text-sm text-white/45 md:flex-row md:items-center md:justify-between md:px-6 lg:px-8">
+            <div>© {new Date().getFullYear()} PaidMedia. All rights reserved.</div>
+            <div>Google Ads • Tracking • Landing Pages</div>
           </div>
         </div>
       </footer>
