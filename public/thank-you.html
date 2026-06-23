@@ -6,16 +6,10 @@
   <title>Thank You | PaidMedia</title>
   <meta name="robots" content="noindex" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: Inter, Arial, sans-serif;
-      background:
-        radial-gradient(circle at top, #0f2a44 0%, #07111f 35%, #000000 100%);
+      background: radial-gradient(circle at top, #0f2a44 0%, #07111f 35%, #000000 100%);
       color: white;
       min-height: 100vh;
       display: flex;
@@ -23,7 +17,6 @@
       justify-content: center;
       padding: 24px;
     }
-
     .card {
       width: 100%;
       max-width: 860px;
@@ -35,7 +28,6 @@
       box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
       backdrop-filter: blur(10px);
     }
-
     .icon-wrap {
       width: 84px;
       height: 84px;
@@ -47,7 +39,6 @@
       align-items: center;
       justify-content: center;
     }
-
     .badge {
       display: inline-block;
       margin-bottom: 16px;
@@ -57,7 +48,6 @@
       letter-spacing: 0.25em;
       text-transform: uppercase;
     }
-
     h1 {
       font-size: 42px;
       line-height: 1.05;
@@ -65,7 +55,6 @@
       max-width: 760px;
       margin: 0 auto;
     }
-
     .lead {
       max-width: 720px;
       margin: 24px auto 0;
@@ -73,7 +62,6 @@
       line-height: 1.8;
       color: rgba(255, 255, 255, 0.78);
     }
-
     .grid {
       margin-top: 36px;
       display: grid;
@@ -81,27 +69,23 @@
       gap: 16px;
       text-align: left;
     }
-
     .box {
       border-radius: 24px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(255, 255, 255, 0.04);
       padding: 22px;
     }
-
     .box h3 {
       font-size: 22px;
       margin-top: 10px;
       margin-bottom: 10px;
       font-weight: 800;
     }
-
     .box p {
       font-size: 15px;
       line-height: 1.8;
       color: rgba(255, 255, 255, 0.72);
     }
-
     .actions {
       margin-top: 34px;
       display: flex;
@@ -109,7 +93,6 @@
       flex-wrap: wrap;
       gap: 14px;
     }
-
     .btn {
       display: inline-flex;
       align-items: center;
@@ -122,61 +105,32 @@
       font-weight: 700;
       transition: 0.25s ease;
     }
-
     .btn-dark {
       background: rgba(255, 255, 255, 0.06);
       color: white;
       border: 1px solid rgba(255, 255, 255, 0.12);
     }
-
-    .btn-dark:hover {
-      background: rgba(255, 255, 255, 0.12);
-    }
-
+    .btn-dark:hover { background: rgba(255, 255, 255, 0.12); }
     .btn-primary {
       background: linear-gradient(90deg, #22d3ee, #06b6d4);
       color: #03131c;
       border: none;
     }
-
-    .btn-primary:hover {
-      opacity: 0.92;
-    }
-
+    .btn-primary:hover { opacity: 0.92; }
     .footer-note {
       margin-top: 24px;
       font-size: 14px;
       color: rgba(255, 255, 255, 0.55);
     }
-
     @media (max-width: 900px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 34px;
-      }
-
-      .lead {
-        font-size: 16px;
-      }
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 34px; }
+      .lead { font-size: 16px; }
     }
-
     @media (max-width: 640px) {
-      .card {
-        padding: 28px 20px;
-        border-radius: 24px;
-      }
-
-      h1 {
-        font-size: 30px;
-      }
-
-      .btn {
-        width: 100%;
-        min-width: auto;
-      }
+      .card { padding: 28px 20px; border-radius: 24px; }
+      h1 { font-size: 30px; }
+      .btn { width: 100%; min-width: auto; }
     }
   </style>
 </head>
