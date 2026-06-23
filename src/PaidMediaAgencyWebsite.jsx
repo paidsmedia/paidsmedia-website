@@ -723,7 +723,7 @@ export default function PaidMediaAgencyWebsite() {
             <div className="mt-6 flex flex-wrap gap-4 text-sm text-white/70">
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-cyan-300" />
-                hello@paidsmedia.com
+                sumon@paidsmedia.com
               </div>
               <div className="flex items-center gap-2">
                 <PhoneCall className="h-4 w-4 text-cyan-300" />
@@ -748,7 +748,7 @@ export default function PaidMediaAgencyWebsite() {
             <div className="mt-5 space-y-3 text-sm text-white/70">
               <div className="flex items-start gap-2">
                 <Mail className="mt-0.5 h-4 w-4 text-cyan-300" />
-                <span>hello@paidsmedia.com</span>
+                <span>sumon@paidsmedia.com</span>
               </div>
               <div className="flex items-start gap-2">
                 <Globe className="mt-0.5 h-4 w-4 text-cyan-300" />
