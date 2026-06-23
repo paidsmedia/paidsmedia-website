@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import {
   BarChart3,
   Globe,
@@ -139,20 +139,30 @@ const workflowSteps = [
 
 export default function PaidMediaAgencyWebsite() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [trackingFields, setTrackingFields] = useState({
+    pageUrl: "",
+    referrer: "",
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
+    utm_term: "",
+    utm_content: "",
+  })
 
-  const handleAuditSubmit = (e) => {
-    e.preventDefault()
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    const params = new URLSearchParams(window.location.search)
+    setTrackingFields({
+      pageUrl: window.location.href || "",
+      referrer: document.referrer || "",
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_term: params.get("utm_term") || "",
+      utm_content: params.get("utm_content") || "",
+    })
+  }, [])
 
-    const formData = new FormData(e.target)
-    const name = formData.get("name")
-    const email = formData.get("email")
-    const website = formData.get("website")
-    const spend = formData.get("spend")
-
-    if (!name || !email || !website || !spend) {
-      alert("Please fill out all fields before continuing.")
-      return
-    }
 
     window.open("https://calendly.com/sumonofficials/free-1-1-consultation", "_blank")
   }
@@ -783,7 +793,24 @@ export default function PaidMediaAgencyWebsite() {
         <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-cyan-300/20 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 p-6 shadow-2xl shadow-blue-500/20 sm:p-10 md:p-16">
           <div className="absolute inset-0 bg-cyan-500/5" />
 
-          <form onSubmit={handleAuditSubmit} className="relative z-10 text-center">
+          <form
+            name="audit-request"
+            method="POST"
+            data-netlify="true"
+            action="/thank-you"
+            className="relative z-10 text-center"
+          >
+            <input type="hidden" name="form-name" value="audit-request" />
+            <input type="hidden" name="subject" value="New PaidsMedia Audit Request" />
+            <input type="hidden" name="source" value="PaidsMedia Website Final Lead Form" />
+            <input type="hidden" name="pageUrl" value={trackingFields.pageUrl} />
+            <input type="hidden" name="referrer" value={trackingFields.referrer} />
+            <input type="hidden" name="utm_source" value={trackingFields.utm_source} />
+            <input type="hidden" name="utm_medium" value={trackingFields.utm_medium} />
+            <input type="hidden" name="utm_campaign" value={trackingFields.utm_campaign} />
+            <input type="hidden" name="utm_term" value={trackingFields.utm_term} />
+            <input type="hidden" name="utm_content" value={trackingFields.utm_content} />
+
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white">
               Free Google Ads & Tracking Audit
             </div>
@@ -792,47 +819,133 @@ export default function PaidMediaAgencyWebsite() {
               Ready To Scale Your Business With Better Ads & Accurate Tracking?
             </h2>
 
-            <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-blue-50 sm:text-lg">
-              Get a complete performance audit covering Google Ads, GA4, GTM, conversion tracking, landing pages, and wasted ad spend opportunities.
+            <p className="mx-auto max-w-3xl text-base leading-8 text-blue-50/90 sm:text-xl">
+              Tell us a bit about your business and current marketing setup. We’ll review your account,
+              identify wasted spend, tracking issues, and show where growth opportunities exist.
             </p>
 
-            <div className="mx-auto mb-5 grid max-w-3xl grid-cols-1 gap-4 md:grid-cols-2">
+            <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-2">
               <input
+                type="text"
                 name="name"
                 required
-                type="text"
                 placeholder="Your Name"
                 className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl placeholder:text-blue-100/60 focus:border-cyan-400/40"
               />
 
               <input
+                type="email"
                 name="email"
                 required
-                type="email"
-                placeholder="Business Email Address"
+                placeholder="Work Email Address"
                 className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl placeholder:text-blue-100/60 focus:border-cyan-400/40"
               />
-            </div>
 
-            <div className="mx-auto grid max-w-3xl grid-cols-1 gap-4 md:grid-cols-2">
               <input
-                name="website"
-                required
                 type="text"
+                name="website"
                 placeholder="Website URL"
                 className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl placeholder:text-blue-100/60 focus:border-cyan-400/40"
               />
 
+              <input
+                type="text"
+                name="businessType"
+                placeholder="Business Type / Niche"
+                className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl placeholder:text-blue-100/60 focus:border-cyan-400/40"
+              />
+            </div>
+
+            <div className="mx-auto mt-4 grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-2">
               <select
-                name="spend"
-                required
+                name="adSpend"
+                defaultValue=""
                 className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl focus:border-white/40"
               >
-                <option value="">Monthly Ad Spend</option>
-                <option>$500 - $2,000</option>
-                <option>$2,000 - $10,000</option>
-                <option>$10,000+</option>
+                <option value="" disabled className="text-black">Monthly Ad Spend</option>
+                <option className="text-black">Not spending yet</option>
+                <option className="text-black">Under $1,000</option>
+                <option className="text-black">$1,000 - $3,000</option>
+                <option className="text-black">$3,000 - $10,000</option>
+                <option className="text-black">$10,000 - $30,000</option>
+                <option className="text-black">$30,000+</option>
               </select>
+
+              <select
+                name="serviceNeeded"
+                defaultValue=""
+                className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl focus:border-white/40"
+              >
+                <option value="" disabled className="text-black">What Service Do You Need?</option>
+                <option className="text-black">Google Ads Management</option>
+                <option className="text-black">Tracking & Analytics Setup</option>
+                <option className="text-black">Landing Page Audit</option>
+                <option className="text-black">Google Ads + Tracking Audit</option>
+                <option className="text-black">Full Funnel Growth Support</option>
+              </select>
+
+              <select
+                name="currentPlatform"
+                defaultValue=""
+                className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl focus:border-white/40"
+              >
+                <option value="" disabled className="text-black">Current Ad Platform</option>
+                <option className="text-black">Google Ads</option>
+                <option className="text-black">Meta Ads</option>
+                <option className="text-black">Google Ads + Meta Ads</option>
+                <option className="text-black">Not running ads yet</option>
+              </select>
+
+              <input
+                type="text"
+                name="targetLocation"
+                placeholder="Target Country / City"
+                className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl placeholder:text-blue-100/60 focus:border-cyan-400/40"
+              />
+            </div>
+
+            <div className="mx-auto mt-4 grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-2">
+              <input
+                type="text"
+                name="phone"
+                placeholder="Phone / WhatsApp (optional)"
+                className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl placeholder:text-blue-100/60 focus:border-cyan-400/40"
+              />
+
+              <select
+                name="preferredContact"
+                defaultValue=""
+                className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-white outline-none backdrop-blur-xl focus:border-white/40"
+              >
+                <option value="" disabled className="text-black">Preferred Contact Method</option>
+                <option className="text-black">Email</option>
+                <option className="text-black">WhatsApp</option>
+                <option className="text-black">Phone Call</option>
+              </select>
+            </div>
+
+            <div className="mx-auto mt-4 max-w-5xl">
+              <textarea
+                name="biggestProblem"
+                rows="5"
+                placeholder="What’s your biggest problem right now? e.g. no leads, bad tracking, high CPA, low ROAS..."
+                className="w-full rounded-2xl border border-white/10 bg-white/10 px-6 py-5 text-white outline-none backdrop-blur-xl placeholder:text-blue-100/60 focus:border-cyan-400/40"
+              ></textarea>
+            </div>
+
+            <div className="mx-auto mt-5 max-w-5xl text-left">
+              <label className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm text-blue-50/90">
+                <input
+                  type="checkbox"
+                  name="consent"
+                  required
+                  className="mt-1 h-4 w-4 rounded border-white/20 bg-transparent accent-cyan-400"
+                />
+                <span>
+                  I agree to be contacted by PaidsMedia about my audit request and understand that my information
+                  will be used only to respond to this inquiry.
+                </span>
+              </label>
             </div>
 
             <button
@@ -842,6 +955,10 @@ export default function PaidMediaAgencyWebsite() {
               Request Free Audit
               <ArrowRight className="h-5 w-5" />
             </button>
+
+            <p className="mt-4 text-sm text-blue-50/80">
+              We usually reply within 24 hours with audit findings and next-step recommendations.
+            </p>
 
             <div className="mt-10 flex flex-wrap justify-center gap-6 text-sm text-blue-50/90">
               <div>✔ Google Ads Audit</div>
