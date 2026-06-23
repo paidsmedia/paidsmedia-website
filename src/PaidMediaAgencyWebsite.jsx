@@ -743,24 +743,55 @@ export default function PaidMediaAgencyWebsite() {
             </div>
           </div>
 
-          <div>
-            <div className="text-sm font-black uppercase tracking-[0.24em] text-white/50">Contact</div>
-            <div className="mt-5 space-y-3 text-sm text-white/70">
-              <div className="flex items-start gap-2">
-                <Mail className="mt-0.5 h-4 w-4 text-cyan-300" />
-                <span>sumon@paidsmedia.com</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <Globe className="mt-0.5 h-4 w-4 text-cyan-300" />
-                <span>paidsmedia.com</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 text-cyan-300" />
-                <span>Remote support for service businesses and lead gen brands</span>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div>
+  <div className="flex items-center gap-3">
+    <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600" />
+    <div>
+      <div className="text-lg font-black">PaidMedia</div>
+      <div className="text-[11px] uppercase tracking-[0.24em] text-white/45">
+        Google Ads & Tracking
+      </div>
+    </div>
+  </div>
+
+  <p className="mt-5 max-w-md text-sm leading-7 text-white/62">
+    Helping businesses improve Google Ads performance, tracking accuracy and
+    landing page conversion with practical strategy and technical execution.
+  </p>
+
+  <a
+    href="https://www.google.com/partners/agency?id=5480497280"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-5 inline-block"
+  >
+    <img
+      src="https://www.gstatic.com/partners/badge/images/2026/PartnerBadgeClickable.svg"
+      alt="Google Partner Badge"
+      className="h-20 w-auto"
+    />
+  </a>
+
+  <div className="mt-6 flex flex-wrap gap-4 text-sm text-white/70">
+    <div className="flex items-center gap-2">
+      <Mail className="h-4 w-4 text-cyan-300" />
+      <span>sumon@paidsmedia.com</span>
+    </div>
+
+    <div className="flex items-center gap-2">
+      <Globe className="h-4 w-4 text-cyan-300" />
+      <span>paidsmedia.com</span>
+    </div>
+
+    <div className="flex items-center gap-2">
+      <MapPin className="h-4 w-4 text-cyan-300" />
+      <span>Remote support for service businesses and lead gen brands</span>
+    </div>
+  </div>
+</div>
+
+
+   
 
         <div className="border-t border-white/10">
           <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 text-sm text-white/45 md:flex-row md:items-center md:justify-between md:px-6 lg:px-8">
