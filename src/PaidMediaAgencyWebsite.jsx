@@ -281,7 +281,7 @@ export default function PaidMediaAgencyWebsite() {
 
             <div className="mt-10 grid grid-cols-3 gap-6 border-t border-white/10 pt-8 text-left">
               <div>
-                <div className="text-2xl font-black text-white">50+</div>
+                <div className="text-2xl font-black text-white">500+</div>
                 <div className="mt-1 text-sm text-white/60">Audits, tracking setups and optimization projects</div>
               </div>
               <div>
