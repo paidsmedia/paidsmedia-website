@@ -171,57 +171,78 @@ export default function PaidMediaAgencyWebsite() {
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,#0f2a44_0%,#07111f_35%,#000000_100%)] text-white">
       {/* Navbar */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6 lg:px-8">
-          <a href="#top" className="flex items-center gap-2">
-            <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 shadow-lg shadow-cyan-500/20" />
-            <div>
-              <div className="text-lg font-black tracking-tight">PaidMedia</div>
-              <div className="text-[11px] uppercase tracking-[0.24em] text-white/45">
-                Google Ads & Tracking
-              </div>
-            </div>
-          </a>
+     
+      
 
-          <nav className="hidden items-center gap-7 text-sm text-white/75 lg:flex">
-            <a href="#services" className="transition hover:text-cyan-300">Services</a>
-            <a href="#results" className="transition hover:text-cyan-300">Results</a>
-            <a href="#pricing" className="transition hover:text-cyan-300">Pricing</a>
-            <a href="#process" className="transition hover:text-cyan-300">Process</a>
-            <a href="#faq" className="transition hover:text-cyan-300">FAQ</a>
-            <a href="#contact" className="rounded-full bg-cyan-400 px-5 py-2.5 font-semibold text-slate-950 transition hover:bg-cyan-300">
-              Get Free Audit
-            </a>
-          </nav>
 
-          <button
-            className="inline-flex rounded-xl border border-white/10 p-2.5 text-white lg:hidden"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
+      
 
-        {mobileMenuOpen && (
-          <div className="border-t border-white/10 bg-[#07111f]/95 lg:hidden">
-            <div className="mx-auto flex max-w-7xl flex-col px-4 py-4 md:px-6">
-              <a href="#services" onClick={() => setMobileMenuOpen(false)} className="border-b border-white/10 py-3 text-white/80">Services</a>
-              <a href="#results" onClick={() => setMobileMenuOpen(false)} className="border-b border-white/10 py-3 text-white/80">Results</a>
-              <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="border-b border-white/10 py-3 text-white/80">Pricing</a>
-              <a href="#process" onClick={() => setMobileMenuOpen(false)} className="border-b border-white/10 py-3 text-white/80">Process</a>
-              <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="border-b border-white/10 py-3 text-white/80">FAQ</a>
-              <a
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="mt-4 inline-flex items-center justify-center rounded-full bg-cyan-400 px-5 py-3 font-semibold text-slate-950"
-              >
-                Get Free Audit
-              </a>
-            </div>
-          </div>
-        )}
-      </header>
+
+<header className="sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur-xl">
+  <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6 lg:px-8">
+    <a href="#top" className="flex items-center">
+      <img
+        src="/logo.png"
+        alt="PaidsMedia"
+        className="h-12 w-auto md:h-14"
+      />
+    </a>
+
+    <nav className="hidden items-center gap-7 text-sm text-white/75 lg:flex">
+      <a href="#services" className="transition hover:text-cyan-300">Services</a>
+      <a href="#results" className="transition hover:text-cyan-300">Results</a>
+      <a href="#pricing" className="transition hover:text-cyan-300">Pricing</a>
+      <a href="#process" className="transition hover:text-cyan-300">Process</a>
+      <a href="#faq" className="transition hover:text-cyan-300">FAQ</a>
+      <a href="#contact" className="rounded-full bg-cyan-400 px-5 py-2.5 font-semibold text-slate-950 transition hover:bg-cyan-300">
+        Get Free Audit
+      </a>
+    </nav>
+
+    <button
+      className="inline-flex rounded-xl border border-white/10 p-2.5 text-white lg:hidden"
+      onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      aria-label="Toggle menu"
+    >
+      {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+    </button>
+  </div>
+
+  {mobileMenuOpen && (
+    <div className="border-t border-white/10 bg-[#07111f]/95 lg:hidden">
+      <div className="mx-auto flex max-w-7xl flex-col px-4 py-4 md:px-6">
+        <a href="#services" onClick={() => setMobileMenuOpen(false)} className="border-b border-white/10 py-3 text-white/80">Services</a>
+        <a href="#results" onClick={() => setMobileMenuOpen(false)} className="border-b border-white/10 py-3 text-white/80">Results</a>
+        <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="border-b border-white/10 py-3 text-white/80">Pricing</a>
+        <a href="#process" onClick={() => setMobileMenuOpen(false)} className="border-b border-white/10 py-3 text-white/80">Process</a>
+        <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="border-b border-white/10 py-3 text-white/80">FAQ</a>
+        <a
+          href="#contact"
+          onClick={() => setMobileMenuOpen(false)}
+          className="mt-4 inline-flex items-center justify-center rounded-full bg-cyan-400 px-5 py-3 font-semibold text-slate-950"
+        >
+          Get Free Audit
+        </a>
+      </div>
+    </div>
+  )}
+</header>
+
+
+
+
+
+
+
+
+
+
+      
+      
+   
+
+
+      
 
       {/* Hero */}
       <section id="top" className="relative overflow-hidden">
