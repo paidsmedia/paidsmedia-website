@@ -627,77 +627,94 @@ export default function PaidMediaAgencyWebsite() {
               tracking, landing pages, and wasted ad spend opportunities.
             </p>
 
-            <form
-              name="audit-request"
-              method="POST"
-              data-netlify="true"
-              action="/thank-you.html"
-              className="mx-auto mt-10 max-w-4xl"
-            >
-              <input type="hidden" name="form-name" value="audit-request" />
+          
+            
+  <form
+  name="audit-request"
+  method="POST"
+  data-netlify="true"
+  netlify
+  action="/thank-you"
+  className="mx-auto mt-10 max-w-4xl"
+>
+  <input type="hidden" name="form-name" value="audit-request" />
 
-              <div className="grid gap-4 md:grid-cols-2">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  required
-                  className="h-16 rounded-2xl border border-white/20 bg-white/10 px-5 text-white placeholder:text-white/60 outline-none transition focus:border-white/40 focus:bg-white/15"
-                />
+  <div className="grid gap-4 md:grid-cols-2">
+    <input
+      type="text"
+      name="name"
+      placeholder="Your Name"
+      required
+      className="h-16 rounded-2xl border border-white/20 bg-white/10 px-5 text-white placeholder:text-white/60 outline-none transition focus:border-white/40 focus:bg-white/15"
+    />
 
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Business Email Address"
-                  required
-                  className="h-16 rounded-2xl border border-white/20 bg-white/10 px-5 text-white placeholder:text-white/60 outline-none transition focus:border-white/40 focus:bg-white/15"
-                />
+    <input
+      type="email"
+      name="email"
+      placeholder="Business Email Address"
+      required
+      className="h-16 rounded-2xl border border-white/20 bg-white/10 px-5 text-white placeholder:text-white/60 outline-none transition focus:border-white/40 focus:bg-white/15"
+    />
 
-                <input
-                  type="url"
-                  name="website"
-                  placeholder="Website URL"
-                  className="h-16 rounded-2xl border border-white/20 bg-white/10 px-5 text-white placeholder:text-white/60 outline-none transition focus:border-white/40 focus:bg-white/15"
-                />
+    <input
+      type="url"
+      name="website"
+      placeholder="Website URL"
+      className="h-16 rounded-2xl border border-white/20 bg-white/10 px-5 text-white placeholder:text-white/60 outline-none transition focus:border-white/40 focus:bg-white/15"
+    />
 
-                <select
-                  name="monthly_ad_spend"
-                  required
-                  defaultValue=""
-                  className="h-16 rounded-2xl border border-white/20 bg-white/10 px-5 text-white outline-none transition focus:border-white/40 focus:bg-white/15"
-                >
-                  <option value="" disabled className="text-slate-900">
-                    Monthly Ad Spend
-                  </option>
-                  <option value="Under $1k" className="text-slate-900">Under $1k</option>
-                  <option value="$1k-$3k" className="text-slate-900">$1k - $3k</option>
-                  <option value="$3k-$10k" className="text-slate-900">$3k - $10k</option>
-                  <option value="$10k-$30k" className="text-slate-900">$10k - $30k</option>
-                  <option value="$30k+" className="text-slate-900">$30k+</option>
-                </select>
-              </div>
+    <select
+      name="monthly_ad_spend"
+      required
+      defaultValue=""
+      className="h-16 rounded-2xl border border-white/20 bg-white/10 px-5 text-white outline-none transition focus:border-white/40 focus:bg-white/15"
+    >
+      <option value="" disabled className="text-slate-900">
+        Monthly Ad Spend
+      </option>
+      <option value="Under $1k" className="text-slate-900">Under $1k</option>
+      <option value="$1k-$3k" className="text-slate-900">$1k - $3k</option>
+      <option value="$3k-$10k" className="text-slate-900">$3k - $10k</option>
+      <option value="$10k-$30k" className="text-slate-900">$10k - $30k</option>
+      <option value="$30k+" className="text-slate-900">$30k+</option>
+    </select>
+  </div>
 
-              <textarea
-                name="message"
-                rows="5"
-                placeholder="Tell me a bit about your current Google Ads or tracking challenges..."
-                className="mt-4 w-full rounded-2xl border border-white/20 bg-white/10 px-5 py-4 text-white placeholder:text-white/60 outline-none transition focus:border-white/40 focus:bg-white/15"
-              />
+  <textarea
+    name="message"
+    rows="5"
+    placeholder="Tell me a bit about your current Google Ads or tracking challenges..."
+    className="mt-4 w-full rounded-2xl border border-white/20 bg-white/10 px-5 py-4 text-white placeholder:text-white/60 outline-none transition focus:border-white/40 focus:bg-white/15"
+  />
 
-              <button
-                type="submit"
-                className="mt-6 inline-flex items-center justify-center rounded-full bg-black px-10 py-5 text-lg font-bold text-white shadow-xl transition hover:translate-y-[-1px] hover:bg-[#081018]"
-              >
-                Request Free Audit <ArrowRight className="ml-3 h-5 w-5" />
-              </button>
+  <button
+    type="submit"
+    className="mt-6 inline-flex items-center justify-center rounded-full bg-black px-10 py-5 text-lg font-bold text-white shadow-xl transition hover:translate-y-[-1px] hover:bg-[#081018]"
+  >
+    Request Free Audit <ArrowRight className="ml-3 h-5 w-5" />
+  </button>
 
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm text-white/90">
-                <span>✓ Google Ads Audit</span>
-                <span>✓ Tracking Review</span>
-                <span>✓ Landing Page Analysis</span>
-                <span>✓ Growth Recommendations</span>
-              </div>
-            </form>
+  <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm text-white/90">
+    <span>✓ Google Ads Audit</span>
+    <span>✓ Tracking Review</span>
+    <span>✓ Landing Page Analysis</span>
+    <span>✓ Growth Recommendations</span>
+  </div>
+</form>
+            
+          
+            
+            
+            
+          
+
+
+
+
+            
+
+
+            
           </div>
         </div>
       </section>
