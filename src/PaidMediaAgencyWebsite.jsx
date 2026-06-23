@@ -702,104 +702,115 @@ export default function PaidMediaAgencyWebsite() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-white/10 bg-black/40">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr] lg:px-8">
-          <div>
-            <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600" />
-              <div>
-                <div className="text-lg font-black">PaidMedia</div>
-                <div className="text-[11px] uppercase tracking-[0.24em] text-white/45">
-                  Google Ads & Tracking
-                </div>
-              </div>
-            </div>
 
-            <p className="mt-5 max-w-md text-sm leading-7 text-white/62">
-              Helping businesses improve Google Ads performance, tracking accuracy and landing page conversion with practical strategy and technical execution.
-            </p>
 
-            <div className="mt-6 flex flex-wrap gap-4 text-sm text-white/70">
-              <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-cyan-300" />
-                sumon@paidsmedia.com
-              </div>
-              <div className="flex items-center gap-2">
-                <PhoneCall className="h-4 w-4 text-cyan-300" />
-                Strategy & audit support
-              </div>
-            </div>
-          </div>
 
-          <div>
-            <div className="text-sm font-black uppercase tracking-[0.24em] text-white/50">Sections</div>
-            <div className="mt-5 space-y-3 text-sm text-white/70">
-              <a href="#services" className="block transition hover:text-cyan-300">Services</a>
-              <a href="#results" className="block transition hover:text-cyan-300">Results</a>
-              <a href="#pricing" className="block transition hover:text-cyan-300">Pricing</a>
-              <a href="#process" className="block transition hover:text-cyan-300">Process</a>
-              <a href="#faq" className="block transition hover:text-cyan-300">FAQ</a>
-            </div>
-          </div>
 
-  <div>
-  <div className="flex items-center gap-3">
-    <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600" />
+
+<footer className="border-t border-white/10 bg-black/40">
+  <div className="mx-auto grid max-w-7xl gap-12 px-4 py-14 md:grid-cols-[1.2fr_0.8fr_0.8fr] md:px-6 lg:px-8">
+    
+    {/* Left column */}
     <div>
-      <div className="text-lg font-black">PaidMedia</div>
-      <div className="text-[11px] uppercase tracking-[0.24em] text-white/45">
-        Google Ads & Tracking
+      <div className="flex items-center gap-3">
+        <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600" />
+        <div>
+          <div className="text-lg font-black text-white">PaidMedia</div>
+          <div className="text-[11px] uppercase tracking-[0.24em] text-white/45">
+            Google Ads & Tracking
+          </div>
+        </div>
+      </div>
+
+      <p className="mt-5 max-w-md text-sm leading-7 text-white/62">
+        Helping businesses improve Google Ads performance, tracking accuracy and
+        landing page conversion with practical strategy and technical execution.
+      </p>
+
+      <a
+        href="https://www.google.com/partners/agency?id=5480497280"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-5 inline-block"
+      >
+        <img
+          src="https://www.gstatic.com/partners/badge/images/2026/PartnerBadgeClickable.svg"
+          alt="Google Partner Badge"
+          className="h-20 w-auto"
+        />
+      </a>
+    </div>
+
+    {/* Middle column */}
+    <div>
+      <div className="text-sm font-black uppercase tracking-[0.24em] text-white/50">
+        Navigation
+      </div>
+      <div className="mt-5 space-y-3 text-sm text-white/70">
+        <a href="#services" className="block transition hover:text-cyan-300">
+          Services
+        </a>
+        <a href="#results" className="block transition hover:text-cyan-300">
+          Results
+        </a>
+        <a href="#pricing" className="block transition hover:text-cyan-300">
+          Pricing
+        </a>
+        <a href="#process" className="block transition hover:text-cyan-300">
+          Process
+        </a>
+        <a href="#faq" className="block transition hover:text-cyan-300">
+          FAQ
+        </a>
+      </div>
+    </div>
+
+    {/* Right column */}
+    <div>
+      <div className="text-sm font-black uppercase tracking-[0.24em] text-white/50">
+        Contact
+      </div>
+      <div className="mt-5 space-y-3 text-sm text-white/70">
+        <div className="flex items-start gap-2">
+          <Mail className="mt-0.5 h-4 w-4 text-cyan-300" />
+          <span>sumon@paidsmedia.com</span>
+        </div>
+
+        <div className="flex items-start gap-2">
+          <Globe className="mt-0.5 h-4 w-4 text-cyan-300" />
+          <span>paidsmedia.com</span>
+        </div>
+
+        <div className="flex items-start gap-2">
+          <MapPin className="mt-0.5 h-4 w-4 text-cyan-300" />
+          <span>Remote support for service businesses and lead gen brands</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <p className="mt-5 max-w-md text-sm leading-7 text-white/62">
-    Helping businesses improve Google Ads performance, tracking accuracy and
-    landing page conversion with practical strategy and technical execution.
-  </p>
-
-  <a
-    href="https://www.google.com/partners/agency?id=5480497280"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="mt-5 inline-block"
-  >
-    <img
-      src="https://www.gstatic.com/partners/badge/images/2026/PartnerBadgeClickable.svg"
-      alt="Google Partner Badge"
-      className="h-20 w-auto"
-    />
-  </a>
-
-  <div className="mt-6 flex flex-wrap gap-4 text-sm text-white/70">
-    <div className="flex items-center gap-2">
-      <Mail className="h-4 w-4 text-cyan-300" />
-      <span>sumon@paidsmedia.com</span>
-    </div>
-
-    <div className="flex items-center gap-2">
-      <Globe className="h-4 w-4 text-cyan-300" />
-      <span>paidsmedia.com</span>
-    </div>
-
-    <div className="flex items-center gap-2">
-      <MapPin className="h-4 w-4 text-cyan-300" />
-      <span>Remote support for service businesses and lead gen brands</span>
+  <div className="border-t border-white/10">
+    <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 text-sm text-white/45 md:flex-row md:items-center md:justify-between md:px-6 lg:px-8">
+      <div>© {new Date().getFullYear()} PaidMedia. All rights reserved.</div>
+      <div>Google Ads • Tracking • Landing Pages</div>
     </div>
   </div>
-</div>
+</footer>
 
 
-   
 
-        <div className="border-t border-white/10">
-          <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 text-sm text-white/45 md:flex-row md:items-center md:justify-between md:px-6 lg:px-8">
-            <div>© {new Date().getFullYear()} PaidMedia. All rights reserved.</div>
-            <div>Google Ads • Tracking • Landing Pages</div>
-          </div>
-        </div>
-      </footer>
-    </div>
-  )
-}
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+      
