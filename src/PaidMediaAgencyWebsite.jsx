@@ -742,46 +742,64 @@ export default function PaidMediaAgencyWebsite() {
 
 
 
+<div>
+  <div className="flex items-center gap-3">
+    <img
+      src="/logo.png"
+      alt="PaidMedia"
+      className="h-10 w-auto md:h-12"
+    />
+
+    <div className="text-[11px] uppercase tracking-[0.24em] text-white/45">
+      Google Ads & Tracking
+    </div>
+  </div>
+
+  <p className="mt-5 max-w-md text-sm leading-7 text-white/62">
+    Helping businesses improve Google Ads performance, tracking accuracy and
+    landing page conversion with practical strategy and technical execution.
+  </p>
+
+  <a
+    href="https://www.google.com/partners/agency?id=5480497280"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-5 inline-block"
+  >
+    <img
+      src="https://www.gstatic.com/partners/badge/images/2026/PartnerBadgeClickable.svg"
+      alt="Google Partner Badge"
+      className="h-20 w-auto"
+    />
+  </a>
+</div>
 
 
-      <footer className="border-t border-white/10 bg-black/40">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 py-14 md:grid-cols-[1.2fr_0.8fr_0.8fr] md:px-6 lg:px-8">
-          
-          <div>
-            <div className="flex items-center gap-3">
-            
-              
- <img
-    src="/logo.png"
-    alt="PaidMedia"
-    className="h-10 w-auto md:h-12" />
 
 
-                
-                <div className="text-[11px] uppercase tracking-[0.24em] text-white/45">
-                  Google Ads & Tracking
-                </div>
-              </div>
-            </div>
 
-            <p className="mt-5 max-w-md text-sm leading-7 text-white/62">
-              Helping businesses improve Google Ads performance, tracking accuracy and
-              landing page conversion with practical strategy and technical execution.
-            </p>
 
-            <a
-              href="https://www.google.com/partners/agency?id=5480497280"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-block"
-            >
-              <img
-                src="https://www.gstatic.com/partners/badge/images/2026/PartnerBadgeClickable.svg"
-                alt="Google Partner Badge"
-                className="h-20 w-auto"
-              />
-            </a>
-          </div>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
 
           <div>
             <div className="text-sm font-black uppercase tracking-[0.24em] text-white/50">
